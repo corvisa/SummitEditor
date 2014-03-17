@@ -1,0 +1,83 @@
+{
+    "completions": [
+        {
+            "trigger":  "channel.say",
+            "contents": "channel.say($0)"
+        },{
+            "trigger":  "channel.play",
+            "contents": "channel.play($0)"
+        },{
+            "trigger":  "channel.gather",
+            "contents": "channel.gather($0)"
+        },{
+            "trigger":  "channel.hangup",
+            "contents": "channel.hangup($0)"
+        },{
+            "trigger":  "util.sms.send(phone_number, message_text)",
+            "contents": "util.sms.send($0)"
+        },{
+            "trigger":  "util.email(to_addr, from_addr, subject, body, {file_name=file})",
+            "contents": "util.email.sendEmail($0)"
+        },{
+            "trigger":  "util.http.get(url, {data={}, headers={} })",
+            "contents": "util.http.get($0)"
+        },{
+            "trigger":  "util.http.post(url, {data={}, headers={}, file_payload={file_name='file_body'} })",
+            "contents": "util.http.post($0)"
+        },{
+            "trigger":  "util.soap.soapCall(url, {method='POST', 'action'='Authenticateuser', headers={}, 'payload'={} })",
+            "contents": "util.soap.soapCall($0)"
+        },{
+            "trigger":  "util.time.time_of_day(timezone)",
+            "contents": "util.time.time_of_day($0)"
+        },{
+            "trigger":  "util.time.is_workday(t)",
+            "contents": "util.time.is_workday($0)"
+        },{
+            "trigger":  "util.time.is_business_hours(t)",
+            "contents": "util.time.is_business_hours($0)"
+        },{
+            "trigger":  "util.time.format(t, format)",
+            "contents": "util.time.format($0)"
+        },{
+            "trigger":  "util.time.weekday_name(t)",
+            "contents": "util.time.weekday_name($0)"
+        },{
+            "trigger":  "util.time.create(time_string, timezone, format)",
+            "contents": "util.time.create($0)"
+        },{
+            "trigger":  "util.time.MONDAY",
+            "contents": "util.time.MONDAY"
+        },{
+            "trigger":  "util.time.TUESDAY",
+            "contents": "util.time.TUESDAY"
+        },{
+            "trigger":  "util.time.WEDNESDAY",
+            "contents": "util.time.WEDNESDAY"
+        },{
+            "trigger":  "util.time.THURSDAY",
+            "contents": "util.time.THURSDAY"
+        },{
+            "trigger":  "util.time.FRIDAY",
+            "contents": "util.time.FRIDAY"
+        },{
+            "trigger":  "util.time.SATURDAY",
+            "contents": "util.time.SATURDAY"
+        },{
+            "trigger":  "util.time.SUNDAY",
+            "contents": "util.time.SUNDAY"
+        },{
+            "trigger":  "util.time.TIME_FORMAT",
+            "contents": "util.time.TIME_FORMAT"
+        },{
+            "trigger":  "util.time.DATE_FORMAT",
+            "contents": "util.time.DATE_FORMAT"
+        },{
+            "trigger":  "util.time.DEFAULT_INPUT_FORMAT",
+            "contents": "util.time.DEFAULT_INPUT_FORMAT"
+        },{
+            "trigger": "summit.newApp",
+            "contents": "function start()\n    channel.say('$0')\nend\n\ncurrent = start\nwhile current do\n    current = current()\nend\n\nchannel.hangup()"
+        }
+    ]
+}

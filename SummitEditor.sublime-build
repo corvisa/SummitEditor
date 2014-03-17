@@ -1,0 +1,9 @@
+// {
+// 	"target": "summit_build"
+// }
+
+// tar -cz --exclude .git .|ssh -q summitdebug@lunaapp1.dev1.int.corvisacloud.com
+{
+	"cmd": ["uxterm", "-e", "/bin/bash", "-c", "$packages/User/simulate.sh $file_path"]
+	,"selector": "source.lua"
+}
