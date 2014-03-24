@@ -1,11 +1,50 @@
 {
-    "scopeName": "source.lua.summit",
-    "name": "Lua (Summit)",
     "fileTypes": [
         ".lua"
     ],
+    "name": "Lua (Summit)",
     "patterns": [
-        { "include": "source.lua"}
+        {
+            "include": "source.lua"
+        },
+        {
+            "include": "#summit-util-time"
+        },
+        {
+            "include": "#summit-util-http"
+        },
+        {
+            "include": "#summit-util-soap"
+        },
+        {
+            "include": "#summit-util-sms"
+        },
+        {
+            "include": "#summit-channel"
+        }
     ],
+    "scopeName": "source.lua.summit",
+    "repository": {
+        "summit-util-time": {
+            "name": "support.function.library.lua.summit.util",
+            "match": "(?<![^.]\\.|:)\\b(util\\.(time\\.(time_of_day|is_workday|is_business_hours|format|weekday_name|create|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY|TIME_FORMAT|DATE_FORMAT|DEFAULT_INPUT_FORMAT)))\\b(?=[( {])"
+        },
+        "summit-util-http": {
+            "name": "support.function.library.lua.summit.util",
+            "match": "(?<![^.]\\.|:)\\b(util\\.(http\\.(get|post)))\\b(?=[( {])"
+        },
+        "summit-util-soap": {
+            "name": "support.function.library.lua.summit.util",
+            "match": "(?<![^.]\\.|:)\\b(util\\.(soap\\.(soapCall)))\\b(?=[( {])"
+        },
+        "summit-util-sms": {
+            "name": "support.function.library.lua.summit.util",
+            "match": "(?<![^.]\\.|:)\\b(util\\.(sms\\.(send)))\\b(?=[( {])"
+        },
+        "summit-channel": {
+            "name": "support.function.library.lua.summit.channel",
+            "match": "(?<![^.]\\.|:)\\b(channel\\.(say|play|gather|hangup|answer))\\b(?=[( {])"
+        }
+    },
     "uuid": "03796283-69ec-4128-8693-522451595db4"
 }
