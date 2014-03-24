@@ -1,0 +1,11 @@
+{
+    "scopeName": "source.lua.summit",
+    "name": "Lua (Summit)",
+    "fileTypes": [
+        ".lua"
+    ],
+    "patterns": [
+        { "include": "source.lua"}
+    ],
+    "uuid": "03796283-69ec-4128-8693-522451595db4"
+}
