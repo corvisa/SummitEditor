@@ -20,8 +20,15 @@
             "include": "#summit-util-sms"
         },
         {
+            "include": "#summit-util-prefs"
+        },
+        {
             "include": "#summit-channel"
+        },
+        {
+            "include": "#summit-channel-data"
         }
+
     ],
     "scopeName": "source.lua.summit",
     "repository": {
@@ -29,35 +36,49 @@
             "name": "support.function.library.lua.summit.util",
             "match": "(?<![^.]\\.|:)\\b(util\\.(time\\.(time_of_day|is_workday|is_business_hours|format|weekday_name|create|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY|TIME_FORMAT|DATE_FORMAT|DEFAULT_INPUT_FORMAT)))\\b(?=[( {])",
             "captures": {
-                "1": { "name": "keyword" }
+                "1": { "name": "constant.character.escape" }
             }
         },
         "summit-util-http": {
             "name": "support.function.library.lua.summit.util",
             "match": "(?<![^.]\\.|:)\\b(util\\.(http\\.(get|post)))\\b(?=[( {])",
             "captures": {
-              "1": { "name": "keyword" }
+              "1": { "name": "constant.character.escape" }
             }
         },
         "summit-util-soap": {
             "name": "support.function.library.lua.summit.util",
             "match": "(?<![^.]\\.|:)\\b(util\\.(soap\\.(soapCall)))\\b(?=[( {])",
             "captures": {
-                "1": { "name": "keyword" }
+                "1": { "name": "constant.character.escape" }
             }
         },
         "summit-util-sms": {
             "name": "support.function.library.lua.summit.util",
             "match": "(?<![^.]\\.|:)\\b(util\\.(sms\\.(send)))\\b(?=[( {])",
             "captures": {
-              "1": { "name": "keyword" }
+              "1": { "name": "constant.character.escape" }
+            }
+        },
+        "summit-util-prefs": {
+            "name": "support.function.library.lua.summit.util",
+            "match": "(?<![^.]\\.|:)\\b(util\\.(prefs\\.+))\\b",
+            "captures": {
+              "1": { "name": "constant.character.escape" }
             }
         },
         "summit-channel": {
             "name": "support.function.library.lua.summit.channel",
-            "match": "(?<![^.]\\.|:)\\b(channel\\.(say|play|gather|hangup|answer))\\b(?=[( {])",
+            "match": "(?<![^.]\\.|:)\\b(channel\\.(say|play|gather|hangup|answer|dial))\\b(?=[( {])",
             "captures": {
-              "1": { "name": "keyword" }
+              "1": { "name": "constant.character.escape" }
+            }
+        },
+        "summit-channel-data": {
+            "name": "support.function.library.lua.summit.channel.data",
+            "match": "(?<![^.]\\.|:)\\b(channel\\.(data\\.(domain|dnis|ani|direction|localnumber|remotenumber|destination|id)))\\b",
+            "captures": {
+              "1": { "name": "constant.character.escape" }
             }
         }
     },

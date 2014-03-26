@@ -8,6 +8,9 @@
             "trigger":  "channel.play",
             "contents": "channel.play('$0')"
         },{
+            "trigger":  "channel.dial",
+            "contents": "channel.dial('$0')"
+        },{
             "trigger":  "channel.gather",
             "contents": "channel.gather($0)"
         },{
@@ -16,6 +19,30 @@
         },{
             "trigger":  "channel.answer",
             "contents": "channel.answer()"
+        },{
+            "trigger":  "chanel.data.domain",
+            "contents": "channel.data.domain"
+        },{
+            "trigger":  "chanel.data.dnis",
+            "contents": "channel.data.dnis"
+        },{
+            "trigger":  "chanel.data.ani",
+            "contents": "channel.data.ani"
+        },{
+            "trigger":  "chanel.data.direction",
+            "contents": "channel.data.direction"
+        },{
+            "trigger":  "chanel.data.localnumber",
+            "contents": "channel.data.localnumber"
+        },{
+            "trigger":  "chanel.data.remotenumber",
+            "contents": "channel.data.remotenumber"
+        },{
+            "trigger":  "chanel.data.destination",
+            "contents": "channel.data.destination"
+        },{
+            "trigger":  "chanel.data.id",
+            "contents": "channel.data.id"
         },{
             "trigger":  "util.sms.send(phone_number, message_text)",
             "contents": "util.sms.send(phone_number, message_text)"
@@ -79,6 +106,9 @@
         },{
             "trigger":  "util.time.DEFAULT_INPUT_FORMAT",
             "contents": "util.time.DEFAULT_INPUT_FORMAT"
+        },{
+            "trigger":  "util.prefs.<preferenceName>",
+            "contents": "util.prefs."
         },{
             "trigger": "summit.fsm",
             "contents": "function start()\n    channel.say('$0')\nend\n\ncurrent = start\nwhile current do\n    current = current()\nend\n\nchannel.hangup()"

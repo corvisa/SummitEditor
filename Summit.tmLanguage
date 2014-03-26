@@ -32,7 +32,15 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#summit-util-prefs</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#summit-channel</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-channel-data</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -44,13 +52,28 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword</string>
+					<string>constant.character.escape</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![^.]\.|:)\b(channel\.(say|play|gather|hangup|answer))\b(?=[( {])</string>
+			<string>(?&lt;![^.]\.|:)\b(channel\.(say|play|gather|hangup|answer|dial))\b(?=[( {])</string>
 			<key>name</key>
 			<string>support.function.library.lua.summit.channel</string>
+		</dict>
+		<key>summit-channel-data</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.character.escape</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(channel\.(data\.(domain|dnis|ani|direction|localnumber|remotenumber|destination|id)))\b</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit.channel.data</string>
 		</dict>
 		<key>summit-util-http</key>
 		<dict>
@@ -59,11 +82,26 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword</string>
+					<string>constant.character.escape</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?&lt;![^.]\.|:)\b(util\.(http\.(get|post)))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit.util</string>
+		</dict>
+		<key>summit-util-prefs</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.character.escape</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(util\.(prefs\.+))\b</string>
 			<key>name</key>
 			<string>support.function.library.lua.summit.util</string>
 		</dict>
@@ -74,7 +112,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword</string>
+					<string>constant.character.escape</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -89,7 +127,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword</string>
+					<string>constant.character.escape</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -104,7 +142,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword</string>
+					<string>constant.character.escape</string>
 				</dict>
 			</dict>
 			<key>match</key>
