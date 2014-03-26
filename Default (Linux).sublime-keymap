@@ -1,0 +1,3 @@
+[
+	{ "keys": ["super+b"], "command": "summit_build_with_args"}
+]
