@@ -12,6 +12,10 @@ if os.path.isdir('{0}/SummitEditor'.format(PACKAGES_PATH)):
     SUMMIT_PLUGIN_PATH = '{0}/SummitEditor'.format(PACKAGES_PATH)
 elif os.path.isdir('{0}/SummitEditor'.format(INSTALLED_PACKAGES_PATH)):
     SUMMIT_PLUGIN_PATH = '{0}/SummitEditor'.format(INSTALLED_PACKAGES_PATH)
+elif os.path.isdir('{0}/summiteditor'.format(INSTALLED_PACKAGES_PATH)):
+    SUMMIT_PLUGIN_PATH = '{0}/summiteditor'.format(INSTALLED_PACKAGES_PATH)
+elif os.path.isdir('{0}/summiteditor'.format(PACKAGES_PATH)):
+    SUMMIT_PLUGIN_PATH = '{0}/summiteditor'.format(PACKAGES_PATH)
 
 
 class SummitBuild(sublime_plugin.WindowCommand):
@@ -21,40 +25,40 @@ class SummitBuild(sublime_plugin.WindowCommand):
             self.build_path = self.window.project_data()['build_path']
         except KeyError:
             sublime.error_message('Unable to find required project setting "build_path"')
+        self.platform = platform.system().lower()
+        self._run()
 
-        self.plat = platform.system()
-
-        if self.plat == "Windows":
-            self.run_windows()
-        elif self.plat == "Linux":
-            self.run_linux()
-        elif self.plat == "Darwin":
-            self.run_mac()
-        else:
+    def _run(self):
+        try:
+            getattr(self, self.platform+'_build')()
+        except AttributeError:
             sublime.error_message(
-                "Unable to determine operating system. {0} not supported.".format(self.plat))
+                "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
 
-    def run_linux(self):
-        self.linux_build()
-
-    def run_windows(self):
-        pass
-
-    def run_mac(self):
+    def windows_build(self):
         pass
 
     def linux_build(self, opts=[]):
-        cmd = ['/bin/bash', "{0}/simulate.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        cmd = ['bash', "{0}/simulate.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
         for opt in opts:
             cmd.append(opt)
+        Popen(cmd)
 
+    def darwin_build(self, opts=[]):
+        cmd = ['bash', "{0}/simulate_mac.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        for opt in opts:
+            cmd.append(opt)
         print(cmd)
         Popen(cmd)
 
 
 class SummitBuildWithArgs(SummitBuild):
-    def run_linux(self, *args, **kwargs):
+    def _run(self, *args, **kwargs):
         self.window.show_input_panel("Simulator Arguments (--Arg Value):", "--DNIS", self.simulate_with_args, None, None)
 
     def simulate_with_args(self, sim_args):
-        self.linux_build(sim_args.split())
+        try:
+            getattr(self, self.platform+'_build')(sim_args.split())
+        except AttributeError:
+            sublime.error_message(
+                "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
