@@ -1,5 +1,4 @@
 {
-	// "cmd": ["/bin/bash", "$packages/SummitEditor/simulate.sh", "$file_path/..", "--DNIS", "5555555555"]
 	"target": "summit_build"
 	,"selector": "source.lua.summit"
 }
