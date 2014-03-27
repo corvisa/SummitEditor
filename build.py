@@ -5,18 +5,7 @@ import sublime_plugin
 
 from subprocess import Popen
 
-PACKAGES_PATH = sublime.packages_path()
-INSTALLED_PACKAGES_PATH = sublime.packages_path()
-
-if os.path.isdir('{0}/SummitEditor'.format(PACKAGES_PATH)):
-    SUMMIT_PLUGIN_PATH = '{0}/SummitEditor'.format(PACKAGES_PATH)
-elif os.path.isdir('{0}/SummitEditor'.format(INSTALLED_PACKAGES_PATH)):
-    SUMMIT_PLUGIN_PATH = '{0}/SummitEditor'.format(INSTALLED_PACKAGES_PATH)
-elif os.path.isdir('{0}/summiteditor'.format(INSTALLED_PACKAGES_PATH)):
-    SUMMIT_PLUGIN_PATH = '{0}/summiteditor'.format(INSTALLED_PACKAGES_PATH)
-elif os.path.isdir('{0}/summiteditor'.format(PACKAGES_PATH)):
-    SUMMIT_PLUGIN_PATH = '{0}/summiteditor'.format(PACKAGES_PATH)
-
+SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
 
 class SummitBuild(sublime_plugin.WindowCommand):
 
@@ -35,8 +24,12 @@ class SummitBuild(sublime_plugin.WindowCommand):
             sublime.error_message(
                 "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
 
-    def windows_build(self):
-        pass
+    def windows_build(self, opts=[]):
+        cmd = ['C:\\Program Files (x86)\\Git\\bin\\bash.exe', "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        for opt in opts:
+            cmd.append(opt)
+        print(cmd)
+        Popen(cmd)
 
     def linux_build(self, opts=[]):
         cmd = ['bash', "{0}/simulate.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
