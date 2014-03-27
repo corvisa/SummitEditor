@@ -111,7 +111,7 @@
             "contents": "util.prefs."
         },{
             "trigger": "summit.fsm",
-            "contents": "function start()\n    channel.say('$0')\nend\n\ncurrent = start\nwhile current do\n    current = current()\nend\n\nchannel.hangup()"
+            "contents": "function start()\n    channel.say('$0')\nend\nchannel.answer()\ncurrent = start\nwhile current do\n    current = current()\nend\n\nchannel.hangup()"
         }
     ]
 }
