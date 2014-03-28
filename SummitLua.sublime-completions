@@ -12,7 +12,7 @@
             "contents": "channel.dial('$0')"
         },{
             "trigger":  "channel.gather",
-            "contents": "channel.gather($0)"
+            "contents": "local $0 = channel.gather()"
         },{
             "trigger":  "channel.hangup",
             "contents": "channel.hangup()"
