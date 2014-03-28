@@ -25,10 +25,9 @@ class SummitBuild(sublime_plugin.WindowCommand):
                 "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
 
     def windows_build(self, opts=[]):
-        cmd = ['C:\\Program Files (x86)\\Git\\bin\\bash.exe', "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        cmd = ['bash.exe', "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
         for opt in opts:
-            cmd.append(opt)
-        print(cmd)
+            cmd.append(opt)      
         Popen(cmd)
 
     def linux_build(self, opts=[]):
@@ -41,7 +40,6 @@ class SummitBuild(sublime_plugin.WindowCommand):
         cmd = ['bash', "{0}/simulate_mac.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
         for opt in opts:
             cmd.append(opt)
-        print(cmd)
         Popen(cmd)
 
 
