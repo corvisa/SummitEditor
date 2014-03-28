@@ -7,6 +7,7 @@ from subprocess import Popen
 
 SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
 
+
 class SummitBuild(sublime_plugin.WindowCommand):
 
     def run(self):
@@ -27,7 +28,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
     def windows_build(self, opts=[]):
         cmd = ['bash.exe', "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
         for opt in opts:
-            cmd.append(opt)      
+            cmd.append(opt)
         Popen(cmd)
 
     def linux_build(self, opts=[]):
