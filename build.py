@@ -46,7 +46,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
 
 class SummitBuildWithArgs(SummitBuild):
     def _run(self, *args, **kwargs):
-        self.window.show_input_panel("Simulator Arguments (--Arg Value):", "--DNIS", self.simulate_with_args, None, None)
+        self.window.show_input_panel("Simulator Arguments (--Arg Value):", "--DNIS ", self.simulate_with_args, None, None)
 
     def simulate_with_args(self, sim_args):
         try:
