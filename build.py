@@ -7,6 +7,7 @@ from subprocess import Popen
 
 SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
 
+
 class SummitBuild(sublime_plugin.WindowCommand):
 
     def run(self):
@@ -25,10 +26,9 @@ class SummitBuild(sublime_plugin.WindowCommand):
                 "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
 
     def windows_build(self, opts=[]):
-        cmd = ['C:\\Program Files (x86)\\Git\\bin\\bash.exe', "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        cmd = ['bash.exe', "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
         for opt in opts:
             cmd.append(opt)
-        print(cmd)
         Popen(cmd)
 
     def linux_build(self, opts=[]):
@@ -41,13 +41,12 @@ class SummitBuild(sublime_plugin.WindowCommand):
         cmd = ['bash', "{0}/simulate_mac.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
         for opt in opts:
             cmd.append(opt)
-        print(cmd)
         Popen(cmd)
 
 
 class SummitBuildWithArgs(SummitBuild):
     def _run(self, *args, **kwargs):
-        self.window.show_input_panel("Simulator Arguments (--Arg Value):", "--DNIS", self.simulate_with_args, None, None)
+        self.window.show_input_panel("Simulator Arguments (--Arg Value):", "--DNIS ", self.simulate_with_args, None, None)
 
     def simulate_with_args(self, sim_args):
         try:
