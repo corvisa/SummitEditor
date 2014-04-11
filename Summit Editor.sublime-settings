@@ -1,0 +1,8 @@
+// Summit Editor default settings
+{
+	// The address of the target host for simulation (builds)
+	"summit_simulator_host": true,
+
+	// If set to true, automatically simulate project when files are saved
+	"summit_simulate_on_save": false
+}
