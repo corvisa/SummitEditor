@@ -6,7 +6,7 @@ import sublime_plugin
 from subprocess import Popen
 
 SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
-SUMMIT_SETTINGS = sublime.load_settings('Summit Editor.sublime-settings')
+SUMMIT_SETTINGS = sublime.load_settings('SummitEditor.sublime-settings')
 
 
 class SummitBuild(sublime_plugin.WindowCommand):
@@ -46,7 +46,12 @@ class SummitBuild(sublime_plugin.WindowCommand):
         Popen(cmd)
 
     def darwin_build(self, opts=[]):
-        cmd = ['bash', "{0}/simulate_mac.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        cmd = [
+            'bash',
+            "{0}/simulate_mac.sh".format(SUMMIT_PLUGIN_PATH),
+            self.build_path,
+            SUMMIT_SETTINGS.get("summit_simulator_host"),
+        ]
         for opt in opts:
             cmd.append(opt)
         Popen(cmd)
