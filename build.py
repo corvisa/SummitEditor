@@ -28,7 +28,12 @@ class SummitBuild(sublime_plugin.WindowCommand):
                 "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
 
     def windows_build(self, opts=[]):
-        cmd = ['bash.exe', "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        cmd = [
+            'bash.exe',
+            "{0}\simulate_windows.sh".format(SUMMIT_PLUGIN_PATH),
+            self.build_path,
+            SUMMIT_SETTINGS.get("summit_simulator_host")
+        ]
         for opt in opts:
             cmd.append(opt)
         Popen(cmd)
