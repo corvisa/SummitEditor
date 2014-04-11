@@ -6,6 +6,7 @@ import sublime_plugin
 from subprocess import Popen
 
 SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
+SUMMIT_SETTINGS = sublime.load_settings('Summit Editor.sublime-settings')
 
 
 class SummitBuild(sublime_plugin.WindowCommand):
@@ -16,6 +17,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
         except KeyError:
             sublime.error_message('Unable to find required project setting "build_path"')
         self.platform = platform.system().lower()
+
         self._run()
 
     def _run(self):
@@ -32,7 +34,13 @@ class SummitBuild(sublime_plugin.WindowCommand):
         Popen(cmd)
 
     def linux_build(self, opts=[]):
-        cmd = ['bash', "{0}/simulate.sh".format(SUMMIT_PLUGIN_PATH), self.build_path]
+        cmd = [
+            'bash',
+            "{0}/simulate.sh".format(SUMMIT_PLUGIN_PATH),
+            self.build_path,
+            SUMMIT_SETTINGS.get("summit_simulator_host")
+        ]
+
         for opt in opts:
             cmd.append(opt)
         Popen(cmd)
