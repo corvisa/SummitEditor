@@ -56,6 +56,14 @@ class SummitBuild(sublime_plugin.WindowCommand):
             self.build_path,
             SUMMIT_SETTINGS.get("summit_simulator_host")
         ]
+
+        #If there is an app id specified in the project settings, pass it to the simulator
+        try:
+            app_id = self.window.project_data()['application_id']
+            opts.append(app_id)
+        except KeyError:
+            pass
+
         for opt in opts:
             cmd.append(opt)
         Popen(cmd)
