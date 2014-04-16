@@ -9,11 +9,11 @@ SummitEditor is the official [http://www.sublimetext.com/3](Sublime Text 3) plug
 All platforms require git, bash, and ssh to be installed and on the system path. There are additional requirements for windows and linux listed below.
 
 *Windows*
-	* Git must be installed to the default location, this will be made more configurable in future updates.
-	* The git/bin directory must be on the system path.
+* Git must be installed to the default location, this will be made more configurable in future updates.
+* The git/bin directory must be on the system path.
 
 *Linux*
-	* Xterm must be installed and on the system path. This should be more flexible in future updates.
+* Xterm must be installed and on the system path. This should be more flexible in future updates.
 
 To install the plugin, simply use git to clone this repository into your sublime text packages directory. You can confirm that this has worked by opening the command palette `ctrl+shift+p` and typing the word 'summit'. You should see an available syntax option for `Lua (Summit)`.
 
