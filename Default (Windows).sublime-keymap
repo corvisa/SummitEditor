@@ -1,0 +1,3 @@
+[
+	{ "keys": ["ctrl+shift+b"], "command": "summit_build_with_args"}
+]
