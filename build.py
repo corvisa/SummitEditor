@@ -49,3 +49,12 @@ class SummitBuildWithArgs(SummitBuild):
 
     def simulate_with_args(self, sim_args):
         self.build(sim_args.split())
+
+
+class SummitAutoBuildOnSave(sublime_plugin.EventListener):
+    def on_post_save(self, view):
+        is_summit_file = view.scope_name(0).startswith('source.lua.summit')
+        auto_build = SUMMIT_SETTINGS.get('summit_simulate_on_save')
+
+        if is_summit_file and auto_build:
+            sublime.active_window().run_command('build')

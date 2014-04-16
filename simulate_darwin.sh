@@ -4,7 +4,7 @@ simulator_host="$2"
 build_args=${*:3}
 
 echo "Deploying project to test server..."
-token=`tar -cz --exclude .git -C $path .|ssh -q summitdebug@$simulator_host`
+token=`tar -cz --exclude .git -C $path .|ssh -q debug@$simulator_host`
 
 echo "Running simulator..."
 
