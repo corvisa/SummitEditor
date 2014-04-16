@@ -34,7 +34,7 @@ osascript <<END
 	tell application "Terminal"
 	    tell window 1
 	    	activate
-	        set w to do script "clear; bash -c \"ssh -t summitdebug@$simulator_host '$token $build_args'; echo; echo Press any key to continue; read -n 1; exit\""
+	        set w to do script "clear; bash -c \"ssh -t debug@$simulator_host '$token $build_args'; echo; echo Press any key to continue; read -n 1; exit\""
 	    end tell
     end tell
 END
