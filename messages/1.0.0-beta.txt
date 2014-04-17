@@ -1,0 +1,6 @@
+# SummitEditor v1.0.0-beta
+
+ - Initial release
+
+ * Simulation now available as ST build process
+ * First draft of completions
