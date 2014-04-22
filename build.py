@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
     The MIT License (MIT)
 
@@ -24,10 +25,11 @@
 
 import os
 import platform
+import re
 import sublime
 import sublime_plugin
 
-from subprocess import Popen
+from subprocess import Popen, PIPE, STDOUT
 
 SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
 SUMMIT_SETTINGS = sublime.load_settings('SummitEditor.sublime-settings')
@@ -85,8 +87,28 @@ class SummitBuildWithArgs(SummitBuild):
 
 class SummitAutoBuildOnSave(sublime_plugin.EventListener):
     def on_post_save(self, view):
+        window = sublime.active_window()
         is_summit_file = view.scope_name(0).startswith('source.lua.summit')
         auto_build = SUMMIT_SETTINGS.get('summit_simulate_on_save')
+        auto_lint = SUMMIT_SETTINGS.get('summit_lint_on_save')
 
         if is_summit_file and auto_build:
-            sublime.active_window().run_command('build')
+            window.run_command('build')
+
+        if is_summit_file and auto_lint:
+            output_panel = window.create_output_panel("mono")
+            window.run_command("show_panel", {"panel": "output.mono"})
+
+            cmd = [
+                'luacheck',
+                view.file_name(),
+                '--ignore',
+                'channel',
+                'util',
+                '_S'
+            ]
+            proc = Popen(cmd, stdout=PIPE, stderr=STDOUT, bufsize=1)
+            output = '\n'.join([l.decode(encoding='UTF-8') for l in iter(proc.stdout.readline, b'')])
+
+            ansi_escape = re.compile(r'\x1b[^m]*m')
+            output_panel.run_command("append", {"characters": ansi_escape.sub('', output)})
