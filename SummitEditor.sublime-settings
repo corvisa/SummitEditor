@@ -4,5 +4,8 @@
 	"summit_simulator_host": "code.corvisacloud.com",
 
 	// If set to true, automatically simulate project when files are saved
-	"summit_simulate_on_save": false
+	"summit_simulate_on_save": false,
+
+	// If set to true, automatically lint (error-check) code on save
+	"summit_lint_on_save": true
 }
