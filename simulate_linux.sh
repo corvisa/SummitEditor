@@ -23,7 +23,8 @@
 
 path="$1"
 simulator_host="$2"
-build_args=${*:3}
+simulator_user="$3"
+build_args=${*:4}
 
-token=`/bin/tar -cz --exclude .git -C $path .|ssh -q debug@$simulator_host`
-xterm -geometry 120x50 -e /bin/bash -c "echo 'Running simulator...'; ssh -t debug@$simulator_host '$token $build_args'; echo; echo 'Press any key to continue'; read -n 1" &
+token=`/bin/tar -cz --exclude .git -C $path .|ssh -q $simulator_user@$simulator_host`
+xterm -geometry 120x50 -e /bin/bash -c "echo 'Running simulator...'; ssh -t $simulator_user@$simulator_host '$token $build_args'; echo; echo 'Press any key to continue'; read -n 1" &

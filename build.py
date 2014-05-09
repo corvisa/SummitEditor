@@ -54,7 +54,8 @@ class SummitBuild(sublime_plugin.WindowCommand):
             'bash',
             "{}{}simulate_{}.sh".format(SUMMIT_PLUGIN_PATH, os.path.sep, self.platform),
             self.build_path,
-            SUMMIT_SETTINGS.get("summit_simulator_host")
+            SUMMIT_SETTINGS.get("summit_simulator_host", "code.corvisacloud.com"),
+            SUMMIT_SETTINGS.get("summit_simulator_user", "debug")
         ]
 
         #If there is an app id specified in the project settings, pass it to the simulator
@@ -66,6 +67,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
 
         for opt in opts:
             cmd.append(opt)
+
         Popen(cmd)
 
 
@@ -86,7 +88,7 @@ class SummitBuildWithArgs(SummitBuild):
 class SummitAutoBuildOnSave(sublime_plugin.EventListener):
     def on_post_save(self, view):
         is_summit_file = view.scope_name(0).startswith('source.lua.summit')
-        auto_build = SUMMIT_SETTINGS.get('summit_simulate_on_save')
+        auto_build = SUMMIT_SETTINGS.get('summit_simulate_on_save', '')
 
         if is_summit_file and auto_build:
             sublime.active_window().run_command('build')

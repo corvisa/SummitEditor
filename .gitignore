@@ -1,2 +1,7 @@
 *.sublime-project
 *.sublime-workspace
+<<<<<<< HEAD
+=======
+*.pyc
+package-metadata.json
+>>>>>>> 417a703f6c8e98cad45d710eed29e4192b7e5864
