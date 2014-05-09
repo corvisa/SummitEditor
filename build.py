@@ -30,12 +30,11 @@ import sublime_plugin
 from subprocess import Popen
 
 SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
-SUMMIT_SETTINGS = sublime.load_settings('SummitEditor.sublime-settings')
 
 
 class SummitBuild(sublime_plugin.WindowCommand):
-
     def run(self):
+        self.SUMMIT_SETTINGS = sublime.load_settings('SummitEditor.sublime-settings')
         try:
             self.build_path = self.window.project_data()['build_path']
         except KeyError:
@@ -54,8 +53,8 @@ class SummitBuild(sublime_plugin.WindowCommand):
             'bash',
             "{}{}simulate_{}.sh".format(SUMMIT_PLUGIN_PATH, os.path.sep, self.platform),
             self.build_path,
-            SUMMIT_SETTINGS.get("summit_simulator_host", "code.corvisacloud.com"),
-            SUMMIT_SETTINGS.get("summit_simulator_user", "debug")
+            self.SUMMIT_SETTINGS.get("summit_simulator_host", "code.corvisacloud.com"),
+            self.SUMMIT_SETTINGS.get("summit_simulator_user", "debug")
         ]
 
         #If there is an app id specified in the project settings, pass it to the simulator
@@ -88,7 +87,7 @@ class SummitBuildWithArgs(SummitBuild):
 class SummitAutoBuildOnSave(sublime_plugin.EventListener):
     def on_post_save(self, view):
         is_summit_file = view.scope_name(0).startswith('source.lua.summit')
-        auto_build = SUMMIT_SETTINGS.get('summit_simulate_on_save', '')
+        auto_build = self.SUMMIT_SETTINGS.get('summit_simulate_on_save', '')
 
         if is_summit_file and auto_build:
             sublime.active_window().run_command('build')
