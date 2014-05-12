@@ -1,12 +1,7 @@
 #SummitEditor
 
-<<<<<<< HEAD
-SummitEditor is the official [http://www.sublimetext.com/3](Sublime Text 3) plugin for [http://corvisacloud.com]
-(CorvisaCloud, LLC's) Summit platform. It provides you with useful snippets, syntax highlighting, and most importantly, access to the Summit Simulator.
-=======
 SummitEditor is the official [Sublime Text 3](http://www.sublimetext.com/3) plugin for [CorvisaCloud, LLC's]
 (http://corvisacloud.com) Summit platform. It provides you with useful snippets, syntax highlighting, and most importantly, access to the Summit Simulator.
->>>>>>> 417a703f6c8e98cad45d710eed29e4192b7e5864
 
 ##Installation
 
@@ -25,9 +20,6 @@ To install the plugin, simply use git to clone this repository into your sublime
 
 ##Running The Simulator
 
-<<<<<<< HEAD
-Once the package has been installed there are a handful of configuration changes to be made in order to start simulating your code. All simulations require
-=======
 Once the package has been installed there are a handful of configuration changes to be made in order to start simulating your code. All simulations require that your code be in a SublimeText project. This can be done easily by cloning your code into a directory, then using `File -> Open Folder` to open the files. Once this has been done you can create a project from this open set of files by going to `Project -> Save Project As...`.
 
 Now that you have a project created, we need to add some simulator settings to it. Simply go to `Project -> Edit Project` and add the following:
@@ -50,7 +42,6 @@ If your application requires additional flags to be set before being run you can
 | appid     | Attempt to set the running application's ID. This will give your datastores the proper context but all requests to this flag hit SSH key authentication. If an invalid appid is specified, the simulator will raise an error. This flag is passed automatically via project setting `application_id` |
 | debug     | In the case of an error being raised inside of your application, drop into an interactive shell for further debugging. |
 
->>>>>>> 417a703f6c8e98cad45d710eed29e4192b7e5864
 
 ##License
 The MIT License (MIT)
