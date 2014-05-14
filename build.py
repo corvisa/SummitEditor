@@ -44,6 +44,8 @@ class SummitBuild(sublime_plugin.WindowCommand):
         self.build()
 
     def build(self, opts=[]):
+        opts  = list(opts)
+
         if self.platform not in ['windows', 'darwin', 'linux']:
             sublime.error_message(
                 "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
@@ -60,6 +62,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
         #If there is an app id specified in the project settings, pass it to the simulator
         try:
             app_id = self.window.project_data()['application_id']
+            opts.append('--appid')
             opts.append(app_id)
         except KeyError:
             pass
