@@ -72,6 +72,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
 
 class SummitBuildWithArgs(SummitBuild):
     def run(self, *args, **kwargs):
+        self.SUMMIT_SETTINGS = sublime.load_settings('SummitEditor.sublime-settings')
         try:
             self.build_path = self.window.project_data()['build_path']
         except KeyError:
