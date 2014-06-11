@@ -1,7 +1,7 @@
 #SummitEditor
 
 SummitEditor is the official [http://www.sublimetext.com/3](Sublime Text 3) plugin for [http://corvisacloud.com]
-(CorvisaCloud, LLC's) Summit platform. It provides you with useful snippets, syntax highlighting, and most importantly, access to the Summit Simulator.
+(CorvisaCloud, LLC)'s Summit platform. It provides you with useful snippets, syntax highlighting, and most importantly, access to the Summit Simulator.
 
 ##Installation
 
