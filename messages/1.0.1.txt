@@ -1,0 +1,3 @@
+# SummitEditor v1.0.1
+  * Add .no-sublime-package file to prevent problems with bash scripts not executing
+
