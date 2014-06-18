@@ -15,7 +15,16 @@ All platforms require git, bash, and ssh to be installed and on the system path.
 *Linux*
 * Xterm must be installed and on the system path. This should be more flexible in future updates.
 
-To install the plugin, simply use git to clone this repository into your sublime text packages directory. You can confirm that this has worked by opening the command palette `ctrl+shift+p` and typing the word 'summit'. You should see an available syntax option for `Lua (Summit)`.
+###Package installation
+The recommended way to install SummitEditor is through Package Control. To install via Package Control:
+
+1. Bring up the Command Palette (`ctrl+shift+p` or `cmd+shift+p` on Mac) and type `install`. Among the commands you should see `Package Control: Install Package`. If that command is not highlighted, use the keyboard or mouse to select it. There will be a pause of a few seconds while Package Control fetches the list of available plugins.
+2. When the plugin list appears, type `SummitEditor`. Among the entries you should see `SummitEditor`. If that entry is not highlighted, use the keyboard or mouse to select it.
+
+Optionally, you can use git to clone this repository into your Sublime Text `Packages` directory. You can confirm that this has worked by opening the Command Palette and typing the word `summit`. You should see an available syntax option for `Lua (Summit)`.
+
+###Optional Packages
+SummitEditor also offers a [SummitLinter](https://github.com/corvisacloud/SummitLinter) plugin for [SublimeLinter 3](http://www.sublimelinter.com/en/latest/) allowing for automatic linting of your code. To install SummitLinter (as well as SublimeLinter if it is not already installed), first make sure you meet the [requirements](https://github.com/corvisacloud/SummitLinter#installation), then select `Tools > SummitEditor > Install SummitLinter Packages`. Note: using this option requires Package Control to be installed.
 
 
 ##Running The Simulator
