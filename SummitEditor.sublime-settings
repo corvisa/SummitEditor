@@ -8,5 +8,11 @@
 	"summit_simulate_on_save": false,
 
 	// If set to true, automatically lint (error-check) code on save
-	"summit_lint_on_save": true
+	"summit_lint_on_save": true,
+
+	// If set to true, use SummitEditor's autocompletion
+	"use_summit_editor_completion": true,
+
+	// The file where SummitEditor's completions are stored
+	"completions_file": "summit.completions",
 }

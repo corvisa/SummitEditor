@@ -8,19 +8,19 @@
             "include": "source.lua"
         },
         {
-            "include": "#summit-util-time"
+            "include": "#summit-time"
         },
         {
-            "include": "#summit-util-http"
+            "include": "#summit-http"
         },
         {
-            "include": "#summit-util-soap"
+            "include": "#summit-soap"
         },
         {
-            "include": "#summit-util-sms"
+            "include": "#summit-sms"
         },
         {
-            "include": "#summit-util-prefs"
+            "include": "#summit-prefs"
         },
         {
             "include": "#summit-channel"
@@ -32,37 +32,37 @@
     ],
     "scopeName": "source.lua.summit",
     "repository": {
-        "summit-util-time": {
-            "name": "support.function.library.lua.summit.util",
-            "match": "(?<![^.]\\.|:)\\b(util\\.(time\\.(time_of_day|is_workday|is_business_hours|format|weekday_name|create|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY|TIME_FORMAT|DATE_FORMAT|DEFAULT_INPUT_FORMAT)))\\b(?=[( {])",
+        "summit-time": {
+            "name": "support.function.library.lua.summit.time",
+            "match": "(?<![^.]\\.|:)\\b(time\\.(now|is_workday|is_business_hours|format|weekday_name|create|to_unix_ts|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY|TIME_FORMAT|DATE_FORMAT|DEFAULT_INPUT_FORMAT))\\b(?=[( {])",
             "captures": {
                 "1": { "name": "constant.character.escape" }
             }
         },
-        "summit-util-http": {
-            "name": "support.function.library.lua.summit.util",
-            "match": "(?<![^.]\\.|:)\\b(util\\.(http\\.(get|post)))\\b(?=[( {])",
+        "summit-http": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(http\\.(get|post))\\b(?=[( {])",
             "captures": {
               "1": { "name": "constant.character.escape" }
             }
         },
-        "summit-util-soap": {
-            "name": "support.function.library.lua.summit.util",
-            "match": "(?<![^.]\\.|:)\\b(util\\.(soap\\.(soapCall)))\\b(?=[( {])",
+        "summit-soap": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(soap\\.(soapCall))\\b(?=[( {])",
             "captures": {
                 "1": { "name": "constant.character.escape" }
             }
         },
-        "summit-util-sms": {
+        "summit-sms": {
             "name": "support.function.library.lua.summit.util",
-            "match": "(?<![^.]\\.|:)\\b(util\\.(sms\\.(send)))\\b(?=[( {])",
+            "match": "(?<![^.]\\.|:)\\b(sms\\.(send))\\b(?=[( {])",
             "captures": {
               "1": { "name": "constant.character.escape" }
             }
         },
-        "summit-util-prefs": {
+        "summit-prefs": {
             "name": "support.function.library.lua.summit.util",
-            "match": "(?<![^.]\\.|:)\\b(util\\.(prefs\\.+))\\b",
+            "match": "(?<![^.]\\.|:)\\b(prefs\\.+)\\b",
             "captures": {
               "1": { "name": "constant.character.escape" }
             }

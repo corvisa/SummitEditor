@@ -1,0 +1,161 @@
+{
+    "scope": "source.lua.summit",
+    "completions": [
+        {
+            "trigger":  "channel.say(text, options)",
+            "contents": "channel.say(${0:text})",
+            "module": null
+        },{
+            "trigger":  "channel.play(filename)",
+            "contents": "channel.play(${0:filename})",
+            "module": null
+        },{
+            "trigger":  "channel.dial(destination, options)",
+            "contents": "channel.dial(${0:destination})",
+            "module": null
+        },{
+            "trigger":  "channel.gather(options)",
+            "contents": "channel.gather(${0:options})",
+            "module": null
+        },{
+            "trigger":  "channel.hangup()",
+            "contents": "channel.hangup()",
+            "module": null
+        },{
+            "trigger":  "channel.answer()",
+            "contents": "channel.answer()",
+            "module": null
+        },{
+            "trigger":  "channel.data.domain",
+            "contents": "channel.data.domain",
+            "module": null
+        },{
+            "trigger":  "channel.data.dnis",
+            "contents": "channel.data.dnis",
+            "module": null
+        },{
+            "trigger":  "channel.data.ani",
+            "contents": "channel.data.ani",
+            "module": null
+        },{
+            "trigger":  "channel.data.direction",
+            "contents": "channel.data.direction",
+            "module": null
+        },{
+            "trigger":  "channel.data.localnumber",
+            "contents": "channel.data.localnumber",
+            "module": null
+        },{
+            "trigger":  "channel.data.remotenumber",
+            "contents": "channel.data.remotenumber",
+            "module": null
+        },{
+            "trigger":  "channel.data.destination",
+            "contents": "channel.data.destination",
+            "module": null
+        },{
+            "trigger":  "channel.data.id",
+            "contents": "channel.data.id",
+            "module": null
+        },{
+            "trigger":  "sms.send(phone_number, message_text)",
+            "contents": "sms.send(${0:phone_number}, ${1:message_text})",
+            "module": "summit.sms"
+        },{
+            "trigger":  "email.send(to_addr, from_addr, subject, body, {file_name=file})",
+            "contents": "email.send(${0:to_addr}, ${1:from_addr}, ${2:subject}, ${3:body})",
+            "module": "summit.email"
+        },{
+            "trigger":  "http.get(url, {data={}, headers={} })",
+            "contents": "http.get(${0:url})",
+            "module": "summit.http"
+        },{
+            "trigger":  "http.post(url, {data={}, headers={}, file_payload={file_name='file_body'} })",
+            "contents": "http.post(${0:url})",
+            "module": "summit.http"
+        },{
+            "trigger":  "soap.soapCall(url, {method='POST', 'action'='Authenticateuser', headers={}, 'payload'={} })",
+            "contents": "soap.soapCall(${0:url})",
+            "module": "soap"
+        },{
+            "trigger":  "time.now(timezone)\tdate/time",
+            "contents": "time.now(${0:timezone})",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.is_workday(t, start_day, end_day)\tboolean",
+            "contents": "time.is_workday(${0:t})",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.is_business_hours(t, start_time, end_time)\tboolean",
+            "contents": "time.is_business_hours(${0:t})",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.format(t, format)\tstr",
+            "contents": "time.format(${0:t}, ${1:format})",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.weekday_name(t)\tstr",
+            "contents": "time.weekday_name(${0:t})",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.create(time_string, timezone, format)\tdate/time",
+            "contents": "time.create(${0:time_string}, ${1:timezone}, ${2:format})",
+            "module": "summit.time"
+        },{
+            "trigger": "time.sleep(seconds)",
+            "contents": "time.sleep(${0:seconds})",
+            "module": "summit.time"
+        },{
+            "trigger": "time.to_unix_ts(t)",
+            "contents": "time.to_unix_ts(${0:t})",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.MONDAY\tint",
+            "contents": "time.MONDAY",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.TUESDAY\tint",
+            "contents": "time.TUESDAY",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.WEDNESDAY\tint",
+            "contents": "time.WEDNESDAY",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.THURSDAY\tint",
+            "contents": "time.THURSDAY",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.FRIDAY\tint",
+            "contents": "time.FRIDAY",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.SATURDAY\tint",
+            "contents": "time.SATURDAY",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.SUNDAY\tint",
+            "contents": "time.SUNDAY",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.TIME_FORMAT\tstr",
+            "contents": "time.TIME_FORMAT",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.DATE_FORMAT\tstr",
+            "contents": "time.DATE_FORMAT",
+            "module": "summit.time"
+        },{
+            "trigger":  "time.DEFAULT_INPUT_FORMAT\tstr",
+            "contents": "time.DEFAULT_INPUT_FORMAT",
+            "module": "summit.time"
+        },{
+            "trigger":  "prefs.<preferenceName>",
+            "contents": "prefs."
+        },{
+            "trigger": "summit.fsm",
+            "contents": "function start()\n    channel.say('$0')\nend\nchannel.answer()\ncurrent = start\nwhile current do\n    current = current()\nend\n\nchannel.hangup()",
+            "module": null
+        }
+    ]
+}

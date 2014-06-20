@@ -16,23 +16,23 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#summit-util-time</string>
+			<string>#summit-time</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#summit-util-http</string>
+			<string>#summit-http</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#summit-util-soap</string>
+			<string>#summit-soap</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#summit-util-sms</string>
+			<string>#summit-sms</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#summit-util-prefs</string>
+			<string>#summit-prefs</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -75,7 +75,7 @@
 			<key>name</key>
 			<string>support.function.library.lua.summit.channel.data</string>
 		</dict>
-		<key>summit-util-http</key>
+		<key>summit-http</key>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -86,11 +86,26 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![^.]\.|:)\b(util\.(http\.(get|post)))\b(?=[( {])</string>
+			<string>(?&lt;![^.]\.|:)\b(http\.(get|post))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-prefs</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.character.escape</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(prefs\.+)\b</string>
 			<key>name</key>
 			<string>support.function.library.lua.summit.util</string>
 		</dict>
-		<key>summit-util-prefs</key>
+		<key>summit-sms</key>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -101,11 +116,11 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![^.]\.|:)\b(util\.(prefs\.+))\b</string>
+			<string>(?&lt;![^.]\.|:)\b(sms\.(send))\b(?=[( {])</string>
 			<key>name</key>
 			<string>support.function.library.lua.summit.util</string>
 		</dict>
-		<key>summit-util-sms</key>
+		<key>summit-soap</key>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -116,11 +131,11 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![^.]\.|:)\b(util\.(sms\.(send)))\b(?=[( {])</string>
+			<string>(?&lt;![^.]\.|:)\b(soap\.(soapCall))\b(?=[( {])</string>
 			<key>name</key>
-			<string>support.function.library.lua.summit.util</string>
+			<string>support.function.library.lua.summit</string>
 		</dict>
-		<key>summit-util-soap</key>
+		<key>summit-time</key>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -131,24 +146,9 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![^.]\.|:)\b(util\.(soap\.(soapCall)))\b(?=[( {])</string>
+			<string>(?&lt;![^.]\.|:)\b(time\.(now|is_workday|is_business_hours|format|weekday_name|create|to_unix_ts|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY|TIME_FORMAT|DATE_FORMAT|DEFAULT_INPUT_FORMAT))\b(?=[( {])</string>
 			<key>name</key>
-			<string>support.function.library.lua.summit.util</string>
-		</dict>
-		<key>summit-util-time</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.character.escape</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(?&lt;![^.]\.|:)\b(util\.(time\.(time_of_day|is_workday|is_business_hours|format|weekday_name|create|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY|TIME_FORMAT|DATE_FORMAT|DEFAULT_INPUT_FORMAT)))\b(?=[( {])</string>
-			<key>name</key>
-			<string>support.function.library.lua.summit.util</string>
+			<string>support.function.library.lua.summit.time</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>

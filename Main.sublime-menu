@@ -11,7 +11,8 @@
 				{
 					"id": "linterinstall",
 					"command": "linter_install",
-					"caption": "Install SummitLinter Packages"}
+					"caption": "Install SummitLinter Packages"
+				},
 			]
 		}
 	]
