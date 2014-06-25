@@ -42,7 +42,7 @@ class SummitCompletions:
         if module is not None:
             if not is_object:
                 import_depth = module.split('.')[-1]
-                if ":" in completion and '${' not in completion:
+                if ":" in completion.split('${')[0]:
                     old_caller = completion.split(':')[0]
                     if '.' in completion:
                         needed_depth = old_caller.split(import_depth)[-1]
@@ -56,7 +56,7 @@ class SummitCompletions:
                     completion = completion.replace(covered_depth, import_name, 1)
             elif import_name in object_map:
                 for obj_name in object_map[import_name]:
-                    if ":" in completion and '${' not in completion:
+                    if ":" in completion.split('${')[0]:
                         old_caller = completion.split(':')[0]
                         if object_map[import_name][obj_name] in old_caller:
                             completion_list.append(completion.replace(old_caller, obj_name, 1))
