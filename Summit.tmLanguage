@@ -104,6 +104,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#integration-dnc-class</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#integration-salesforce</string>
 		</dict>
 		<dict>
@@ -154,7 +158,22 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![^.]\.|:)\b(\w+\.(initialize|__tablify|__csvify|__parseScrubResponse|scrub|block|unblock|__parseStatusResponse|status))\b(?=[( {])</string>
+			<string>(?&lt;![^.]\.|:)\b(([\w\.])+:(|__csvify|__parseScrubResponse|scrub|block|unblock|__parseStatusResponse|status))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>integration-dnc-class</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(initialize|__tablify))\b(?=[( {])</string>
 			<key>name</key>
 			<string>support.function.library.lua.summit</string>
 		</dict>

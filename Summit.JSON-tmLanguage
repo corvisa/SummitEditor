@@ -74,6 +74,9 @@
             "include": "#integration-dnc"
         },
         {
+            "include": "#integration-dnc-class"
+        },
+        {
             "include": "#integration-salesforce"
         },
         {
@@ -232,7 +235,14 @@
         },
         "integration-dnc": {
             "name": "support.function.library.lua.summit",
-            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(initialize|__tablify|__csvify|__parseScrubResponse|scrub|block|unblock|__parseStatusResponse|status))\\b(?=[( {])",
+            "match": "(?<![^.]\\.|:)\\b(([\\w\\.])+:(|__csvify|__parseScrubResponse|scrub|block|unblock|__parseStatusResponse|status))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "integration-dnc-class": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(initialize|__tablify))\\b(?=[( {])",
             "captures": {
                 "1": { "name": "support.function.library.lua.summit" }
             }
