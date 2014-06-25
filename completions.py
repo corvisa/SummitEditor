@@ -33,6 +33,37 @@ class SummitCompletions:
             json_data = open(os.path.join(sublime.packages_path(), plugin_folder, source))
             self.completions = json.load(json_data)
             json_data.close()
+    
+    def replace_completions(self, c, module, import_map, object_map, trigger_or_contents, trigger_or_contents_list):
+        is_object = 'object' in c
+        import_name = import_map[module]
+        completion = trigger_or_contents
+        completion_list = list(trigger_or_contents_list)
+        if module is not None:
+            if not is_object:
+                import_depth = module.split('.')[-1]
+                if ":" in completion and '${' not in completion:
+                    old_caller = completion.split(':')[0]
+                    if '.' in completion:
+                        needed_depth = old_caller.split(import_depth)[-1]
+                        new_caller =  import_name + needed_depth
+                        completion = completion.replace(old_caller, new_caller, 1)
+                    else:
+                        completion = completion.replace(old_caller, import_name, 1)
+                else:
+                    covered_depth_part = completion.partition(import_depth)[:-1]
+                    covered_depth = ''.join(covered_depth_part)
+                    completion = completion.replace(covered_depth, import_name, 1)
+            elif import_name in object_map:
+                for obj_name in object_map[import_name]:
+                    if ":" in completion and '${' not in completion:
+                        old_caller = completion.split(':')[0]
+                        if object_map[import_name][obj_name] in old_caller:
+                            completion_list.append(completion.replace(old_caller, obj_name, 1))
+                    else:
+                        old_caller = completion.split('.')[0]
+                        completion_list.append(completion.replace(old_caller, obj_name, 1))       
+        return completion, completion_list    
 
     def find_completions(self, view, prefix, import_map, object_map):
         self.load_completions()
@@ -44,7 +75,6 @@ class SummitCompletions:
             trigger = ""
             contents = ""
             valid_comps = []
-            # if isinstance(c, dict):
             if 'module' in c:
                 if type(c['module']) is list:
                     comp_list = list(c['module'])
@@ -62,50 +92,16 @@ class SummitCompletions:
                 continue
             trigger = c['trigger']
             trigger_list = []
+            contents = c['contents']
             contents_list = []
             for module in valid_comps:
-                if module is not None:
-                    if 'object' not in c:
-                        if ":" in trigger:
-                            if '.' in trigger:
-                                trigger = trigger.replace(c['trigger'].split(':')[0], import_map[module] + c['trigger'].split(':')[0].split(module.split('.')[-1])[-1], 1)
-                            else:
-                                trigger = trigger.replace(c['trigger'].split(':')[0], import_map[module], 1)
-                        else:    
-                            trigger = trigger.replace(''.join(c['trigger'].partition(module.split('.')[-1])[:-1]), import_map[module], 1)
-                    elif import_map[module] in object_map:
-                        for obj in object_map[import_map[module]]:
-                            if ":" in trigger:
-                                if object_map[import_map[module]][obj] in trigger.split(':')[0]:
-                                    trigger_list.append(trigger.replace(c['trigger'].split(':')[0], obj, 1))
-                            else:
-                                trigger_list.append(trigger.replace(c['trigger'].split('.')[0], obj, 1))
-
-
+                replaced_triggers = self.replace_completions(c, module, import_map, object_map, trigger, trigger_list)
+                trigger, trigger_list = replaced_triggers[0], list(replaced_triggers[1])
                 if not trim_result:
-                    contents = c['contents']
-                    if module is not None:
-                        if 'object' not in c:
-                            if ":" in c['trigger']:
-                                if '.' in c['trigger']:
-                                    contents = contents.replace(c['contents'].split(':')[0], import_map[module] + c['contents'].split(':')[0].split(module.split('.')[-1])[-1], 1)
-                                else:
-                                    contents = contents.replace(c['contents'].split(':')[0], import_map[module], 1)
-                            else:
-                                contents = contents.replace(''.join(c['contents'].partition(module.split('.')[-1])[:-1]), import_map[module], 1)
-                        elif import_map[module] in object_map:
-                            for obj in object_map[import_map[module]]:
-                                if ":" in trigger:
-                                    if object_map[import_map[module]][obj] in trigger.split(':')[0]:
-                                        contents_list.append(contents.replace(c['contents'].split(':')[0], obj, 1))
-                                else:
-                                    contents_list.append(contents.replace(c['contents'].split('.')[0], obj, 1))
+                    replaced_contents = self.replace_completions(c, module, import_map, object_map, contents, contents_list)
+                    contents, contents_list = replaced_contents[0], list(replaced_contents[1])
                 else:
                     contents = c['contents'].partition('.')[2]
-                # elif is_string_instance(c):
-                #     if self.fuzzyMatchString(c, use_fuzzy_completion):
-                #         trigger = c
-                #         contents = c
                 if trigger_list != []:
                     for i in range(len(trigger_list)):
                         try:
@@ -149,18 +145,23 @@ class CompletionsListener(SummitCompletions, sublime_plugin.EventListener):
         view.find_all(import_regex, 0, r'\2,\3', import_extractions)
         view.find_all(object_regex, 0, r'\1,\2', object_extractions)
         for pair in import_extractions:
-            import_map[pair.split(',')[1]] = pair.split(',')[0]
+            module = pair.split(',')[1]
+            import_name = pair.split(',')[0]
+            import_map[module] = import_name
             for obj in object_extractions:
-                if obj.split(',')[1].split('.')[0] == pair.split(',')[0]:
-                    if len(obj.split(',')[1].split('.')) < 2:
-                        lastModule = pair.split(',')[1].split('.')[-1]
+                obj_depth = obj.split(',')[1]
+                obj_creator = obj_depth.split('.')[0]
+                if obj_creator == import_name:
+                    depth_num = len(obj.split(',')[1].split('.'))
+                    if depth_num < 2:
+                        obj_type = module.split('.')[-1]
                     else:
-                        lastModule = obj.split(',')[1].split('.')[1]
-                    if obj.split(',')[1].split('.')[0] not in object_map:
-                        
-                            object_map[obj.split(',')[1].split('.')[0]] = {obj.split(',')[0]: lastModule}
+                        obj_type = module.split('.')[1]
+                    obj_name = obj.split(',')[0]
+                    if obj_creator not in object_map:
+                        object_map[obj_creator] = {obj_name: obj_type}
                     else:
-                        object_map[obj.split(',')[1].split('.')[0]][obj.split(',')[0]] = lastModule
+                        object_map[obj_creator][obj_name] = obj_type
         use_summit_editor_completion = get_setting('use_summit_editor_completion')
         if use_summit_editor_completion and view.match_selector(locations[0], "source.lua.summit - entity"):
             comps = self.find_completions(view, prefix, import_map, object_map)
