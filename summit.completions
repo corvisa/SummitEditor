@@ -14,8 +14,8 @@
             "contents": "channel.dial(${0:destination})",
             "module": null
         },{
-            "trigger":  "channel.gather(options)",
-            "contents": "channel.gather(${0:options})",
+            "trigger":  "channel.gather(options)\tstr",
+            "contents": "channel.gather()",
             "module": null
         },{
             "trigger":  "channel.hangup()",
@@ -24,6 +24,18 @@
         },{
             "trigger":  "channel.answer()",
             "contents": "channel.answer()",
+            "module": null
+        },{
+            "trigger":  "channel.record(options)",
+            "contents": "channel.record()",
+            "module": null
+        },{
+            "trigger":  "channel.ring()",
+            "contents": "channel.ring()",
+            "module": null
+        },{
+            "trigger":  "channel.sleep(seconds, options)",
+            "contents": "channel.sleep(${0:seconds})",
             "module": null
         },{
             "trigger":  "channel.data.domain",
@@ -58,97 +70,93 @@
             "contents": "channel.data.id",
             "module": null
         },{
-            "trigger":  "sms.send(phone_number, message_text)",
-            "contents": "sms.send(${0:phone_number}, ${1:message_text})",
-            "module": "summit.sms"
-        },{
             "trigger":  "email.send(to_addr, from_addr, subject, body, {file_name=file})",
             "contents": "email.send(${0:to_addr}, ${1:from_addr}, ${2:subject}, ${3:body})",
-            "module": "summit.email"
+            "module": ["summit.email", "summit.email.send"]
         },{
             "trigger":  "http.get(url, {data={}, headers={} })",
             "contents": "http.get(${0:url})",
-            "module": "summit.http"
+            "module": ["summit.http", "summit.http.get"]
         },{
             "trigger":  "http.post(url, {data={}, headers={}, file_payload={file_name='file_body'} })",
             "contents": "http.post(${0:url})",
-            "module": "summit.http"
+            "module": ["summit.http", "summit.http.post"]
         },{
             "trigger":  "soap.soapCall(url, {method='POST', 'action'='Authenticateuser', headers={}, 'payload'={} })",
             "contents": "soap.soapCall(${0:url})",
-            "module": "soap"
+            "module": ["summit.soap", "summit.soap.soapCall"]
         },{
             "trigger":  "time.now(timezone)\tdate/time",
             "contents": "time.now(${0:timezone})",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.now"]
         },{
             "trigger":  "time.is_workday(t, start_day, end_day)\tboolean",
             "contents": "time.is_workday(${0:t})",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.is_workday"]
         },{
             "trigger":  "time.is_business_hours(t, start_time, end_time)\tboolean",
             "contents": "time.is_business_hours(${0:t})",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.is_business_hours"]
         },{
             "trigger":  "time.format(t, format)\tstr",
             "contents": "time.format(${0:t}, ${1:format})",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.format"]
         },{
             "trigger":  "time.weekday_name(t)\tstr",
             "contents": "time.weekday_name(${0:t})",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.weekday_name"]
         },{
             "trigger":  "time.create(time_string, timezone, format)\tdate/time",
             "contents": "time.create(${0:time_string}, ${1:timezone}, ${2:format})",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.create"]
         },{
             "trigger": "time.sleep(seconds)",
             "contents": "time.sleep(${0:seconds})",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.sleep"]
         },{
-            "trigger": "time.to_unix_ts(t)",
-            "contents": "time.to_unix_ts(${0:t})",
-            "module": "summit.time"
+            "trigger": "time.to_unix_ts(time)",
+            "contents": "time.to_unix_ts(${0:time})",
+            "module": ["summit.time", "summit.time.to_unix_ts"]
         },{
             "trigger":  "time.MONDAY\tint",
             "contents": "time.MONDAY",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.MONDAY"]
         },{
             "trigger":  "time.TUESDAY\tint",
             "contents": "time.TUESDAY",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.TUESDAY"]
         },{
             "trigger":  "time.WEDNESDAY\tint",
             "contents": "time.WEDNESDAY",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.WEDNESDAY"]
         },{
             "trigger":  "time.THURSDAY\tint",
             "contents": "time.THURSDAY",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.THURSDAY"]
         },{
             "trigger":  "time.FRIDAY\tint",
             "contents": "time.FRIDAY",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.FRIDAY"]
         },{
             "trigger":  "time.SATURDAY\tint",
             "contents": "time.SATURDAY",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.SATURDAY"]
         },{
             "trigger":  "time.SUNDAY\tint",
             "contents": "time.SUNDAY",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.SUNDAY"]
         },{
             "trigger":  "time.TIME_FORMAT\tstr",
             "contents": "time.TIME_FORMAT",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.TIME_FORMAT"]
         },{
             "trigger":  "time.DATE_FORMAT\tstr",
             "contents": "time.DATE_FORMAT",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.DATE_FORMAT"]
         },{
             "trigger":  "time.DEFAULT_INPUT_FORMAT\tstr",
             "contents": "time.DEFAULT_INPUT_FORMAT",
-            "module": "summit.time"
+            "module": ["summit.time", "summit.time.DEFAULT_INPUT_FORMAT"]
         },{
             "trigger":  "prefs.<preferenceName>",
             "contents": "prefs."
@@ -156,6 +164,510 @@
             "trigger": "summit.fsm",
             "contents": "function start()\n    channel.say('$0')\nend\nchannel.answer()\ncurrent = start\nwhile current do\n    current = current()\nend\n\nchannel.hangup()",
             "module": null
+        },{
+            "trigger": "math.generate_uuid()\tuserdata",
+            "contents": "math.generate_uuid()",
+            "module": ["summit.math", "summit.math.generate_uuid"]
+        },{
+            "trigger": "appdata:update(key, updates)",
+            "contents": "appdata:update(${0:key}, ${1:updates})",
+            "module": "summit.appdata",
+            "object": true
+        },{
+            "trigger": "application.application_type",
+            "contents": "application.application_type",
+            "module": ["summit.application", "summit.application.application_typec"]
+        },{
+            "trigger": "areacode.areacode_to_state(areacode)",
+            "contents": "areacode.areacode_to_state(${0:areacode})",
+            "module": ["summit.areacode", "summit.areacode.areacode_to_state"]
+        },{
+            "trigger": "db.BaseRow:new(model, key, data_table)",
+            "contents": "db.BaseRow:new(${0:model}, ${1:key}, ${2:data_table})",
+            "module": ["summit.db", "summit.db.BaseRow"]
+        },{
+            "trigger": "BaseRow:save()",
+            "contents": "BaseRow:save()",
+            "module": ["summit.db", "summit.db.BaseRow"],
+            "object": true
+        },{
+            "trigger": "BaseRow:delete()",
+            "contents": "BaseRow:delete()",
+            "module": ["summit.db", "summit.db.BaseRow"],
+            "object": true
+        },{
+            "trigger": "BaseRow.key",
+            "contents": "BaseRow.key",
+            "module": ["summit.db", "summit.db.BaseRow"],
+            "object": true
+        },{
+            "trigger": "BaseRow.data",
+            "contents": "BaseRow.data",
+            "module": ["summit.db", "summit.db.BaseRow"],
+            "object": true
+        },{
+            "trigger": "db.BlobRow:new(model, key, data_table)",
+            "contents": "db.BlobRow:new(${0:model}, ${1:key}, ${2:data_table})",
+            "module": ["summit.db", "summit.db.BlobRow"]
+        },{
+            "trigger": "BlobRow:save()",
+            "contents": "BlobRow:save()",
+            "module": ["summit.db", "summit.db.BlobRow"],
+            "object": true
+        },{
+            "trigger": "BlobRow:delete()",
+            "contents": "BlobRow:delete()",
+            "module": ["summit.db", "summit.db.BlobRow"],
+            "object": true
+        },{
+            "trigger": "BlobRow.key",
+            "contents": "BlobRow.key",
+            "module": ["summit.db", "summit.db.BlobRow"],
+            "object": true
+        },{
+            "trigger": "BlobRow.data",
+            "contents": "BlobRow.data",
+            "module": ["summit.db", "summit.db.BlobRow"],
+            "object": true
+        },{
+            "trigger": "db.DatabaseModel:new(model_name, type)",
+            "contents": "db.DatabaseModel:new(${0:model_name}, ${1:type})",
+            "module": ["summit.db", "summit.db.DatabaseModel"]
+        },{
+            "trigger": "db.DatabaseModel:get(model_name, type)",
+            "contents": "db.DatabaseModel:get(${0:model_name}, ${1:type})",
+            "module": ["summit.db", "summit.db.DatabaseModel"],
+            "object": true
+        },{
+            "trigger": "DatabaseModel:blank(key)",
+            "contents": "DatabaseModel:blank(${0:key})",
+            "module": ["summit.db", "summit.db.DatabaseModel"],
+            "object": true
+        },{
+            "trigger": "DatabaseModel:insert(key, value)",
+            "contents": "DatabaseModel:insert(${0:key}, ${1:value})",
+            "module": ["summit.db", "summit.db.DatabaseModel"],
+            "object": true
+        },{
+            "trigger": "db.SetRow:new(model, key, data_table)",
+            "contents": "db.SetRow:new(${0:model}, ${1:key}, ${2:data_table})",
+            "module": ["summit.db", "summit.db.SetRow"]
+        },{
+            "trigger": "SetRow:insert(value)",
+            "contents": "SetRow:insert(${0:value})",
+            "module": ["summit.db", "summit.db.SetRow"],
+            "object": true
+        },{
+            "trigger": "SetRow:remove(value)",
+            "contents": "SetRow:remove(${0:value})",
+            "module": ["summit.db", "summit.db.SetRow"],
+            "object": true
+        },{
+            "trigger": "SetRow:save()",
+            "contents": "SetRow:save()",
+            "module": ["summit.db", "summit.db.SetRow"],
+            "object": true
+        },{
+            "trigger": "SetRow:delete()",
+            "contents": "SetRow:delete()",
+            "module": ["summit.db", "summit.db.SetRow"],
+            "object": true
+        },{
+            "trigger": "SetRow.key",
+            "contents": "SetRow.key",
+            "module": ["summit.db", "summit.db.SetRow"],
+            "object": true
+        },{
+            "trigger": "SetRow.data",
+            "contents": "SetRow.data",
+            "module": ["summit.db", "summit.db.SetRow"],
+            "object": true
+        },{
+            "trigger": "db.MapRow:new(model, key, data_table)",
+            "contents": "db.MapRow:new(${0:model}, ${1:key}, ${2:data_table})",
+            "module": ["summit.db", "summit.db.MapRow"]
+        },{
+            "trigger": "MapRow:update(update_data)",
+            "contents": "MapRow:update(${0:update_data})",
+            "module": ["summit.db", "summit.db.MapRow"],
+            "object": true
+        },{
+            "trigger": "MapRow:remove(remove_data)",
+            "contents": "MapRow:remove(${0:remove_data})",
+            "module": ["summit.db", "summit.db.MapRow"],
+            "object": true
+        },{
+            "trigger": "MapRow:save()",
+            "contents": "MapRow:save()",
+            "module": ["summit.db", "summit.db.MapRow"],
+            "object": true
+        },{
+            "trigger": "MapRow:delete()",
+            "contents": "MapRow:delete()",
+            "module": ["summit.db", "summit.db.MapRow"],
+            "object": true
+        },{
+            "trigger": "MapRow.key",
+            "contents": "MapRow.key",
+            "module": ["summit.db", "summit.db.MapRow"],
+            "object": true
+        },{
+            "trigger": "MapRow.data",
+            "contents": "MapRow.data",
+            "module": ["summit.db", "summit.db.MapRow"],
+            "object": true
+        },{
+            "trigger": "db.ListRow:new(model, key, data_table)",
+            "contents": "db.ListRow:new(${0:model}, ${1:key}, ${2:data_table})",
+            "module": ["summit.db", "summit.db.ListRow"]
+        },{
+            "trigger": "ListRow:append(value)",
+            "contents": "ListRow:append(${0:value})",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ListRow:prepend(value)",
+            "contents": "ListRow:prepend(${0:value})",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ListRow:remove(value)",
+            "contents": "ListRow:remove(${0:value})",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ListRow:update(index, value)",
+            "contents": "ListRow:update(${0:index}, ${1:value})",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ListRow:save()",
+            "contents": "ListRow:save()",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ListRow:delete()",
+            "contents": "ListRow:delete()",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ListRow.key",
+            "contents": "ListRow.key",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ListRow.data",
+            "contents": "ListRow.data",
+            "module": ["summit.db", "summit.db.ListRow"],
+            "object": true
+        },{
+            "trigger": "ivr.run(start, answer, hangup)",
+            "contents": "ivr.run(${0:start})",
+            "module": "summit.ivr",
+            "object": true
+        },{
+            "trigger": "manifest.get(name, raw)",
+            "contents": "manifest.get(${0:name}, ${1:raw})",
+            "module": "summit.manifest"
+        },{
+            "trigger": "menu.add(entry, prompt, func)",
+            "contents": "menu.add(${0:entry}, ${1:prompt}, ${2:func})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.invalid(sound)",
+            "contents": "menu.invalid(${0:sound})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.timeout(seconds)",
+            "contents": "menu.timeout(${0:seconds})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.digitTimeout(seconds)",
+            "contents": "menu.digitTimeout(${0:seconds})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.attempts(attempts)",
+            "contents": "menu.attempts(${0:attempts})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.default(func)",
+            "contents": "menu.default(${0:func})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.intro(prompt)",
+            "contents": "menu.intro(${0:prompt})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.outro(prompt)",
+            "contents": "menu.outro(${0:prompt})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.run(opts)",
+            "contents": "menu.run(${0:outro})",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "menu.selection",
+            "contents": "menu.selection",
+            "module": "summit.menu",
+            "object": true
+        },{
+            "trigger": "sms.send(to, text, sender, callback_url)",
+            "contents": "sms.send(${0:to}, ${1:text}, ${2:sender})",
+            "module": ["summit.sms", "summit.sms.send"]
+        },{
+            "trigger": "dict.initialize(t)",
+            "contents": "dict.initialize(${0:t})",
+            "module": "corvisa.dict"
+        },{
+            "trigger": "dict.clear()",
+            "contents": "dict.clear()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.copy()",
+            "contents": "dict.copy()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.fromkeys(seq, val)",
+            "contents": "dict.fromkeys(${0:seq}, ${1:val})",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.get(key, val)",
+            "contents": "dict.get(${0:key}, ${1:val})",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.has_key(key)",
+            "contents": "dict.has_key(${0:key})",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.items()",
+            "contents": "dict.items()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.iteritems()",
+            "contents": "dict.iteritems()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.iterkeys()",
+            "contents": "dict.iterkeys()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.itervalues()",
+            "contents": "dict.itervalues()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.keys()",
+            "contents": "dict.keys()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.pop(key, val)",
+            "contents": "dict.pop(${0:key}, ${1:val})",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.popitem()",
+            "contents": "dict.popitem()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.setdefault(key, val)",
+            "contents": "dict.setdefault(${0:key}, ${1:val})",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.update(t)",
+            "contents": "dict.update(${0:t})",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "dict.values()",
+            "contents": "dict.values()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "list.initialize(t)",
+            "contents": "list.initialize(${0:t})",
+            "module": "corvisa.list"
+        },{
+            "trigger": "list.append(x)",
+            "contents": "list.append(${0:x})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.extend(t)",
+            "contents": "list.extend(${0:t})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.insert(i, x)",
+            "contents": "list.insert(${0:i}, ${1:x})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.remove(x)",
+            "contents": "list.remove(${0:x})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.pop(i)",
+            "contents": "list.pop(${0:i})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.index(x)",
+            "contents": "list.index(${0:x})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.contains(x)",
+            "contents": "list.contains(${0:x})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.count(x)",
+            "contents": "list.count(${0:x})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.sort(cmp)",
+            "contents": "list.sort(${0:cmp})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "list.reverse()",
+            "contents": "list.reverse()",
+            "module": "corvisa.dict",
+            "object": true
+        },{
+            "trigger": "list.get(i)",
+            "contents": "list.get(${0:i})",
+            "module": "corvisa.list",
+            "object": true
+        },{
+            "trigger": "dnc.initialize(loginId, accountId, projectId)",
+            "contents": "dnc.initialize(${0:loginId}, ${1:accountId}, ${2:projectId})",
+            "module": "integration.dnc"
+        },{
+            "trigger": "dnc:scrub(phoneList)",
+            "contents": "dnc:scrub(${0:phoneList})",
+            "module": "integration.dnc",
+            "object": true
+        },{
+            "trigger": "dnc:block(Table)",
+            "contents": "dnc:block(${0:Table})",
+            "module": "integration.dnc",
+            "object": true
+        },{
+            "trigger": "dnc:unblock(Table)",
+            "contents": "dnc:unblock(${0:Table})",
+            "module": "integration.dnc",
+            "object": true
+        },{
+            "trigger": "dnc:status(Table)",
+            "contents": "dnc:status(${0:Table})",
+            "module": "integration.dnc",
+            "object": true
+        },{
+            "trigger": "dnc.__tablify(data)",
+            "contents": "dnc.__tablify(${0:data})",
+            "module": ["integration.dnc", "integration.dnc.__tablify"]
+        },{
+            "trigger": "dnc:__csvify(data)",
+            "contents": "dnc:__csvify(${0:data})",
+            "module": "integration.dnc",
+            "object": true
+        },{
+            "trigger": "dnc:__parseScrubResponse(s)",
+            "contents": "dnc:__parseScrubResponse(${0:s})",
+            "module": "integration.dnc",
+            "object": true
+        },{
+            "trigger": "dnc:__parseStatusResponse(s)",
+            "contents": "dnc:__parseStatusResponse(${0:s})",
+            "module": "integration.dnc",
+            "object": true
+        },{
+            "trigger": "salesforce.login(username, password, token, options)",
+            "contents": "salesforce.login(${0:username}, ${1:password}, ${2:token})",
+            "module": ["integration.salesforce", "integration.salesforce.login"]
+        },{
+            "trigger": "salesforce.query(querystring)",
+            "contents": "salesforce.query(${0:querystring})",
+            "module": ["integration.salesforce", "integration.salesforce.query"]
+        },{
+            "trigger": "salesforce.create(options)",
+            "contents": "salesforce.create(${0:options})",
+            "module": ["integration.salesforce", "integration.salesforce.create"]
+        },{
+            "trigger": "salesforce.update(options)",
+            "contents": "salesforce.update(${0:options})",
+            "module": ["integration.salesforce", "integration.salesforce.update"]
+        },{
+            "trigger": "salesforce.delete(ids)",
+            "contents": "salesforce.delete(${0:ids})",
+            "module": ["integration.salesforce", "integration.salesforce.delete"]
+        },{
+            "trigger": "zoho.initialize(options)",
+            "contents": "zoho.initialize(${0:options})",
+            "module": "integration.zoho"
+        },{
+            "trigger": "zoho:get(viewName)",
+            "contents": "zoho:get(${0:viewName})",
+            "module": "integration.zoho",
+            "object": true
+        },{
+            "trigger": "zoho:update(formName, criteria, fields)",
+            "contents": "zoho:update(${0:formName}, ${1:criteria}, ${2:fields})",
+            "module": "integration.zoho",
+            "object": true
+        },{
+            "trigger": "zoho:create(formName, fields)",
+            "contents": "zoho:create(${0:formName}, ${0:fields})",
+            "module": "integration.zoho",
+            "object": true
+        },{
+            "trigger": "zoho:delete(formName, criteria)",
+            "contents": "zoho:delete(${0:formName}, ${1:criteria})",
+            "module": "integration.zoho",
+            "object": true
+        },{
+            "trigger": "zoho:list_fields(formName)",
+            "contents": "zoho:list_fields(${0:formName})",
+            "module": "integration.zoho",
+            "object": true
+        },{
+            "trigger": "zoho:list_applications(limit)",
+            "contents": "zoho:list_applications()",
+            "module": "integration.zoho",
+            "object": true
+        },{
+            "trigger": "zoho:list_forms(appName)",
+            "contents": "zoho:list_forms()",
+            "module": "integration.zoho",
+            "object": true
+        },{
+            "trigger": "zoho:list_forms_and_views(appName)",
+            "contents": "zoho:list_forms_and_views()",
+            "module": "integration.zoho",
+            "object": true
         }
     ]
 }

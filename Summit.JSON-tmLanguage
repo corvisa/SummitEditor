@@ -33,6 +33,51 @@
         },
         {
             "include": "#summit-email"
+        },
+        {
+            "include": "#summit-math"
+        },
+        {
+            "include": "#summit-appdata"
+        },
+        {
+            "include": "#summit-application"
+        },
+        {
+            "include": "#summit-areacode"
+        },
+        {
+            "include": "#summit-db"
+        },
+        {
+            "include": "#summit-db-fields"
+        },
+        {
+            "include": "#summit-ivr"
+        },
+        {
+            "include": "#summit-manifest"
+        },
+        {
+            "include": "#summit-menu"
+        },
+        {
+            "include": "#summit-menu-fields"
+        },
+        {
+            "include": "#corvisa-dict"
+        },
+        {
+            "include": "#corvisa-list"
+        },
+        {
+            "include": "#integration-dnc"
+        },
+        {
+            "include": "#integration-salesforce"
+        },
+        {
+            "include": "#integration-zoho"
         }
 
     ],
@@ -97,6 +142,111 @@
         "summit-email": {
             "name": "support.function.library.lua.summit",
             "match": "(?<![^.]\\.|:)\\b(\\w+\\.(send))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-math": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(generate_uuid))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-appdata": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+:(update))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-application": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(application_type))\\b",
+            "captures": {
+                "1": { "name": "constant.language.lua.summit" }
+            }
+        },
+        "summit-areacode": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(areacode_to_state))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-db": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(([\\w\\.])+:(new|save|delete|update|remove|append|prepend|insert|get|blank))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-db-fields": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(key|data))\\b",
+            "captures": {
+                "1": { "name": "constant.language.lua.summit" }
+            }
+        },
+        "summit-ivr": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(run))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-manifest": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(get))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-menu": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(add|invalid|timeout|digitTimeout|attempts|default|intro|outro|run))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "summit-menu-fields": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(selection))\\b",
+            "captures": {
+                "1": { "name": "constant.language.lua.summit" }
+            }
+        },
+        "corvisa-dict": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(initialize|clear|copy|fromkeys|get|has_key|items|iteritems|iterkeys|itervalues|keys|pop|popitem|setdefault|update|values))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "corvisa-list": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(initialize|append|extend|insert|remove|pop|index|contains|count|sort|reverse|get))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "integration-dnc": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(initialize|__tablify|__csvify|__parseScrubResponse|scrub|block|unblock|__parseStatusResponse|status))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "integration-salesforce": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+\\.(login|query|create|update|delete))\\b(?=[( {])",
+            "captures": {
+                "1": { "name": "support.function.library.lua.summit" }
+            }
+        },
+        "integration-zoho": {
+            "name": "support.function.library.lua.summit",
+            "match": "(?<![^.]\\.|:)\\b(\\w+:(get|update|create|delete|list_fields|list_applications|list_forms|list_forms_and_views))\\b(?=[( {])",
             "captures": {
                 "1": { "name": "support.function.library.lua.summit" }
             }

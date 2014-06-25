@@ -50,9 +50,189 @@
 			<key>include</key>
 			<string>#summit-email</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-math</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-appdata</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-application</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-areacode</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-db</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-db-fields</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-ivr</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-manifest</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-menu</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#summit-menu-fields</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#corvisa-dict</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#corvisa-list</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#integration-dnc</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#integration-salesforce</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#integration-zoho</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>corvisa-dict</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(initialize|clear|copy|fromkeys|get|has_key|items|iteritems|iterkeys|itervalues|keys|pop|popitem|setdefault|update|values))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>corvisa-list</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(initialize|append|extend|insert|remove|pop|index|contains|count|sort|reverse|get))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>integration-dnc</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(initialize|__tablify|__csvify|__parseScrubResponse|scrub|block|unblock|__parseStatusResponse|status))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>integration-salesforce</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(login|query|create|update|delete))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>integration-zoho</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+:(get|update|create|delete|list_fields|list_applications|list_forms|list_forms_and_views))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-appdata</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+:(update))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-application</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(application_type))\b</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-areacode</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(areacode_to_state))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
 		<key>summit-channel</key>
 		<dict>
 			<key>captures</key>
@@ -83,6 +263,36 @@
 			<key>name</key>
 			<string>support.function.library.lua.summit.channel.data</string>
 		</dict>
+		<key>summit-db</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(([\w\.])+:(new|save|delete|update|remove|append|prepend|insert|get|blank))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-db-fields</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(key|data))\b</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
 		<key>summit-email</key>
 		<dict>
 			<key>captures</key>
@@ -110,6 +320,81 @@
 			</dict>
 			<key>match</key>
 			<string>(?&lt;![^.]\.|:)\b(\w+\.(get|post))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-ivr</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(run))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-manifest</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(get))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-math</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(generate_uuid))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-menu</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.library.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(add|invalid|timeout|digitTimeout|attempts|default|intro|outro|run))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.lua.summit</string>
+		</dict>
+		<key>summit-menu-fields</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.lua.summit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(\w+\.(selection))\b</string>
 			<key>name</key>
 			<string>support.function.library.lua.summit</string>
 		</dict>
