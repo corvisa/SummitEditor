@@ -10,12 +10,6 @@ object_regex = """^(?:local\s+)?([\w\d_]+)\s*=\s*([.\w\d_]*?)(?:\.initialize)?(?
 def is_summit_file(view):
     return view.match_selector(view.sel()[0].a, "source.lua.summit")
 
-# def is_string_instance(obj):
-#     try:
-#         return isinstance(obj, basestring)
-#     except NameError:
-#         return isinstance(obj, str)
-
 def get_setting(setting):
     settings = sublime.load_settings("SummitEditor.sublime-settings")
     return settings.get(setting)
@@ -36,10 +30,10 @@ class SummitCompletions:
     
     def replace_completions(self, c, module, import_map, object_map, trigger_or_contents, trigger_or_contents_list):
         is_object = 'object' in c
-        import_name = import_map[module]
         completion = trigger_or_contents
         completion_list = list(trigger_or_contents_list)
         if module is not None:
+            import_name = import_map[module]
             if not is_object:
                 import_depth = module.split('.')[-1]
                 if ":" in completion.split('${')[0]:
@@ -84,6 +78,8 @@ class SummitCompletions:
                     if module not in import_map:
                         if module is not None:
                             continue
+                        else:
+                            valid_comps.append(module)     
                     else:
                         valid_comps.append(module)           
             else:
