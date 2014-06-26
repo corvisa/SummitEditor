@@ -1,0 +1,4 @@
+# SummitEditor v1.0.2
+* Improvements to autocompletion while using the Summit syntax, e.g. recognizing imports and object instantiations.
+* Improvements to syntax definition and syntax highlighting.
+* Fixed incorrectly-named variable in Windows build script.
