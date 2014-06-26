@@ -11,21 +11,29 @@ All platforms require git, bash, and ssh to be installed and on the system path.
 *Windows*
 * Git must be installed to the default location, this will be made more configurable in future updates.
 * The git/bin directory must be on the system path.
+* If not on the path already, git, bash, and ssh can be put on the path by selecting the "Use Git and optional Unix tools from the Windows Command Prompt" option on the "Adjusting your PATH environment" step of the git installer.
 
 *Linux*
 * Xterm must be installed and on the system path. This should be more flexible in future updates.
 
 ###Package installation
-The recommended way to install SummitEditor is through Package Control. To install via Package Control:
+The recommended way to install SummitEditor is through Package Control. If you do not have Package Control installed, read the [installation instructions](https://sublime.wbond.net/installation). To install via Package Control:
 
 1. Bring up the Command Palette (`ctrl+shift+p` or `cmd+shift+p` on Mac) and type `install`. Among the commands you should see `Package Control: Install Package`. If that command is not highlighted, use the keyboard or mouse to select it. There will be a pause of a few seconds while Package Control fetches the list of available plugins.
 2. When the plugin list appears, type `SummitEditor`. Among the entries you should see `SummitEditor`. If that entry is not highlighted, use the keyboard or mouse to select it.
 
-Optionally, you can use git to clone this repository into your Sublime Text `Packages` directory. You can confirm that this has worked by opening the Command Palette and typing the word `summit`. You should see an available syntax option for `Lua (Summit)`.
+Optionally, you can use git to clone this repository into your Sublime Text `Packages` directory. You can confirm that installation has worked by opening the Command Palette and typing the word `summit`. You should see an available syntax option for `Lua (Summit)`.
 
 ###Optional Packages
 SummitEditor also offers a [SummitLinter](https://github.com/corvisacloud/SummitLinter) plugin for [SublimeLinter 3](http://www.sublimelinter.com/en/latest/) allowing for automatic linting of your code. To install SummitLinter (as well as SublimeLinter if it is not already installed), first make sure you meet the [requirements](https://github.com/corvisacloud/SummitLinter#installation), then select `Tools > SummitEditor > Install SummitLinter Packages`. Note: using this option requires Package Control to be installed.
 
+###Application Structure
+When you clone your application, the application directory should be as follows:  
+\<application\>/  
+├── assets  
+├── spec   
+└── src   
+The simulator will run the `main.lua` file inside the application's `src` directory.  
 
 ##Running The Simulator
 
@@ -36,7 +44,7 @@ Now that you have a project created, we need to add some simulator settings to i
 ```json
 "build_path": "/folder/that/contains/your/application/source"
 ```
-You can also optionally add the application id, which can be useful for simulation involving data in datastores:
+build_path should point to the `src` directory's parent directory and *not* the `src` directory itself. You can also optionally add the application id, which can be useful for simulation involving data in datastores:
 ```json
 "application_id": "12345678-1234-5678-1234-567812345678"
 ```
