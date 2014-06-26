@@ -23,7 +23,7 @@ class SummitCompletions:
     def load_completions(self):
         if len(self.completions) == 0:
             source = get_setting("completions_file")
-            plugin_folder = "summiteditor"
+            plugin_folder = "SummitEditor"
             json_data = open(os.path.join(sublime.packages_path(), plugin_folder, source))
             self.completions = json.load(json_data)
             json_data.close()

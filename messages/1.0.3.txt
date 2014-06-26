@@ -1,0 +1,2 @@
+# SummitEditor v1.0.3
+* Fixed issue with completions searching for incorrect folder.
