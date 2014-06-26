@@ -29,7 +29,7 @@ simulator_user="$3"
 build_args=${*:4}
 
 echo "Compressing project..."
-token=`tar -cz --exclude .git -C $project_path .|ssh -i "$keyfile" -q $simulator_user@$simulator_host`
+token=`tar -cz --exclude .git -C $path .|ssh -i "$keyfile" -q $simulator_user@$simulator_host`
 echo "Deploying project to test server..."
 
 clear
