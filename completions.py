@@ -148,11 +148,12 @@ class CompletionsListener(SummitCompletions, sublime_plugin.EventListener):
                 obj_depth = obj.split(',')[1]
                 obj_creator = obj_depth.split('.')[0]
                 if obj_creator == import_name:
-                    depth_num = len(obj.split(',')[1].split('.'))
+                    callee = obj.split(',')[1]
+                    depth_num = len(callee.split('.'))
                     if depth_num < 2:
                         obj_type = module.split('.')[-1]
                     else:
-                        obj_type = module.split('.')[1]
+                        obj_type = callee.split('.')[1]
                     obj_name = obj.split(',')[0]
                     if obj_creator not in object_map:
                         object_map[obj_creator] = {obj_name: obj_type}
