@@ -13,8 +13,13 @@
 					"command": "linter_install",
 					"caption": "Install SummitLinter Packages"
 				},
+				{
+					"id": "summit_build_with_args",
+					"caption": "Build with Arguments",
+					"command": "summit_build_with_args"
+				}
 			]
-		}
+		},
 	]
 }
 ]
