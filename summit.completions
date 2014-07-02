@@ -212,22 +212,22 @@
         },{
             "trigger": "BlobRow:save()",
             "contents": "BlobRow:save()",
-            "module": ["summit.db", "summit.db.BlobRow"],
+            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "BlobRow:delete()",
             "contents": "BlobRow:delete()",
-            "module": ["summit.db", "summit.db.BlobRow"],
+            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "BlobRow.key",
             "contents": "BlobRow.key",
-            "module": ["summit.db", "summit.db.BlobRow"],
+            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "BlobRow.data",
             "contents": "BlobRow.data",
-            "module": ["summit.db", "summit.db.BlobRow"],
+            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "db.DatabaseModel:new(model_name, type)",
@@ -255,32 +255,32 @@
         },{
             "trigger": "SetRow:insert(value)",
             "contents": "SetRow:insert(${0:value})",
-            "module": ["summit.db", "summit.db.SetRow"],
+            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "SetRow:remove(value)",
             "contents": "SetRow:remove(${0:value})",
-            "module": ["summit.db", "summit.db.SetRow"],
+            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "SetRow:save()",
             "contents": "SetRow:save()",
-            "module": ["summit.db", "summit.db.SetRow"],
+            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "SetRow:delete()",
             "contents": "SetRow:delete()",
-            "module": ["summit.db", "summit.db.SetRow"],
+            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "SetRow.key",
             "contents": "SetRow.key",
-            "module": ["summit.db", "summit.db.SetRow"],
+            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "SetRow.data",
             "contents": "SetRow.data",
-            "module": ["summit.db", "summit.db.SetRow"],
+            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "db.MapRow:new(model, key, data_table)",
@@ -289,32 +289,32 @@
         },{
             "trigger": "MapRow:update(update_data)",
             "contents": "MapRow:update(${0:update_data})",
-            "module": ["summit.db", "summit.db.MapRow"],
+            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "MapRow:remove(remove_data)",
             "contents": "MapRow:remove(${0:remove_data})",
-            "module": ["summit.db", "summit.db.MapRow"],
+            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "MapRow:save()",
             "contents": "MapRow:save()",
-            "module": ["summit.db", "summit.db.MapRow"],
+            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "MapRow:delete()",
             "contents": "MapRow:delete()",
-            "module": ["summit.db", "summit.db.MapRow"],
+            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "MapRow.key",
             "contents": "MapRow.key",
-            "module": ["summit.db", "summit.db.MapRow"],
+            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "MapRow.data",
             "contents": "MapRow.data",
-            "module": ["summit.db", "summit.db.MapRow"],
+            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "db.ListRow:new(model, key, data_table)",
@@ -323,42 +323,42 @@
         },{
             "trigger": "ListRow:append(value)",
             "contents": "ListRow:append(${0:value})",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ListRow:prepend(value)",
             "contents": "ListRow:prepend(${0:value})",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ListRow:remove(value)",
             "contents": "ListRow:remove(${0:value})",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ListRow:update(index, value)",
             "contents": "ListRow:update(${0:index}, ${1:value})",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ListRow:save()",
             "contents": "ListRow:save()",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ListRow:delete()",
             "contents": "ListRow:delete()",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ListRow.key",
             "contents": "ListRow.key",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ListRow.data",
             "contents": "ListRow.data",
-            "module": ["summit.db", "summit.db.ListRow"],
+            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
             "object": true
         },{
             "trigger": "ivr.run(start, answer, hangup)",
