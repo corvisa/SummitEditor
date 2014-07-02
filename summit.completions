@@ -640,7 +640,7 @@
             "object": true
         },{
             "trigger": "zoho:create(formName, fields)",
-            "contents": "zoho:create(${0:formName}, ${0:fields})",
+            "contents": "zoho:create(${0:formName}, ${1:fields})",
             "module": "integration.zoho",
             "object": true
         },{

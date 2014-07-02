@@ -33,22 +33,21 @@ class SummitCompletions:
         completion = trigger_or_contents
         completion_list = list(trigger_or_contents_list)
         if module is not None:
-            if module in import_map:
+            if module in import_map and not is_object:
                 import_name = import_map[module]
-                if not is_object:
-                    import_depth = module.split('.')[-1]
-                    if ":" in completion.split('${')[0]:
-                        old_caller = completion.split(':')[0]
-                        if '.' in completion:
-                            needed_depth = old_caller.split(import_depth)[-1]
-                            new_caller =  import_name + needed_depth
-                            completion = completion.replace(old_caller, new_caller, 1)
-                        else:
-                            completion = completion.replace(old_caller, import_name, 1)
+                import_depth = module.split('.')[-1]
+                if ":" in completion.split('${')[0]:
+                    old_caller = completion.split(':')[0]
+                    if '.' in completion:
+                        needed_depth = old_caller.split(import_depth)[-1]
+                        new_caller =  import_name + needed_depth
+                        completion = completion.replace(old_caller, new_caller, 1)
                     else:
-                        covered_depth_part = completion.partition(import_depth)[:-1]
-                        covered_depth = ''.join(covered_depth_part)
-                        completion = completion.replace(covered_depth, import_name, 1)
+                        completion = completion.replace(old_caller, import_name, 1)
+                else:
+                    covered_depth_part = completion.partition(import_depth)[:-1]
+                    covered_depth = ''.join(covered_depth_part)
+                    completion = completion.replace(covered_depth, import_name, 1)
             elif is_object:
                 if len(object_map) < 1:
                     return "", []
