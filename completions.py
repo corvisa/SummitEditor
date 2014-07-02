@@ -149,8 +149,7 @@ class CompletionsListener(SummitCompletions, sublime_plugin.EventListener):
                 obj_depth = obj.split(',')[1]
                 obj_creator = obj_depth.split('.')[0]
                 obj_name = obj.split(',')[0]
-                created_from_obj = False
-                if obj_creator == import_name or created_from_obj:
+                if obj_creator == import_name:
                     callee = obj.split(',')[1]
                     depth_num = len(callee.split('.'))
                     if depth_num < 2:
@@ -164,7 +163,10 @@ class CompletionsListener(SummitCompletions, sublime_plugin.EventListener):
                 else:
                     for obj in object_map:
                         if obj_creator in object_map[obj]:
-                            object_map[obj][obj_name] = object_map[obj][obj_creator]
+                            if len(obj_depth.split('.')) > 1: 
+                                object_map[obj][obj_name] = '.'.join([object_map[obj][obj_creator], '.'.join(obj_depth.split('.')[1:])])
+                            else:
+                                object_map[obj][obj_name] = object_map[obj][obj_creator]
                             break
         use_summit_editor_completion = get_setting('use_summit_editor_completion')
         if use_summit_editor_completion and view.match_selector(locations[0], "source.lua.summit - entity"):
