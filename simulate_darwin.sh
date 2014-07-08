@@ -35,7 +35,7 @@ osascript <<END
 	tell application "Terminal"
 	    tell window 1
 	    	activate
-	        set w to do script "clear; bash -c \"ssh -t $simulator_user@$simulator_host '$token $build_args'; echo; echo Press any key to continue; read -n 1; exit\""
+	        set w to do script "clear; ssh -t $simulator_user@$simulator_host '$token $build_args'; echo; echo Press any key to continue; read -n 1; exit;"
 	    end tell
     end tell
 END
