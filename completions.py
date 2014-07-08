@@ -5,7 +5,7 @@ import re
 import json
 
 import_regex = """^(local\s+)?([\w\d_]+)\s*=\s*require\s*\(?['"]?(.+?)['"]?\)?$"""
-object_regex = """^(?:local\s+)?([\w\d_]+)\s*=\s*([.\w\d_]*?)(?:\.initialize)?(?:\:(?:new|get))?(\(.*\))$"""
+object_regex = """^(?:local\s+)?([\w\d_]+)\s*=\s*([.\w\d_]*?)(?:(?:\.|:)initialize)?(?:\:(?:new|get))?(\(.*\))$"""
 
 def is_summit_file(view):
     return view.match_selector(view.sel()[0].a, "source.lua.summit")

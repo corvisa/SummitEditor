@@ -625,8 +625,8 @@
             "contents": "salesforce.delete(${0:ids})",
             "module": ["integration.salesforce", "integration.salesforce.delete"]
         },{
-            "trigger": "zoho.initialize(options)",
-            "contents": "zoho.initialize(${0:options})",
+            "trigger": "zoho:initialize(options)",
+            "contents": "zoho:initialize(${0:options})",
             "module": "integration.zoho"
         },{
             "trigger": "zoho:get(viewName)",
