@@ -141,7 +141,7 @@ class CompletionsListener(SummitCompletions, sublime_plugin.EventListener):
         view.find_all(import_regex, 0, r'\2,\3', import_extractions)
         view.find_all(object_regex, 0, r'\1,\2', object_extractions)
         for pair in import_extractions:
-            module = pair.split(',')[1]
+            module = re.sub(r'(\'|")', '', pair.split(',')[1])
             import_name = pair.split(',')[0]
             import_map[module] = import_name
             for obj in object_extractions:
