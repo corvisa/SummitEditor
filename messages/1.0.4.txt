@@ -1,2 +1,3 @@
 # SummitEditor v1.0.4
 * Fixed issue with recognizing imports from within a module (e.g. importing a function from a module) for autocompletions.
+* Modified OS X build script to close Terminal window after "Press any key to continue."
