@@ -32,7 +32,7 @@ class SummitCompletions:
         is_object = 'object' in c
         completion = trigger_or_contents
         completion_list = list(trigger_or_contents_list)
-        if module is not None:
+        if module is not None and module != 'channel':
             if module in import_map and not is_object:
                 import_name = import_map[module]
                 import_depth = module.split('.')[-1]
