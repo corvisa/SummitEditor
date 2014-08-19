@@ -1,25 +1,79 @@
 [
-{
-	"id": "tools",
-	"children":
-	[
-		{
-			"id": "summiteditor",
-			"caption": "SummitEditor",
-			"children":
-			[
-				{
-					"id": "linterinstall",
-					"command": "linter_install",
-					"caption": "Install SummitLinter Packages"
-				},
-				{
-					"id": "summit_build_with_args",
-					"caption": "Build with Arguments",
-					"command": "summit_build_with_args"
-				}
-			]
-		},
-	]
-}
+	{
+		"id": "tools",
+		"children":
+		[
+			{
+				"id": "summiteditor",
+				"caption": "SummitEditor",
+				"children":
+				[
+					{
+						"id": "linterinstall",
+						"command": "linter_install",
+						"caption": "Install SummitLinter Packages"
+					},
+					{
+						"id": "summit_build_with_args",
+						"caption": "Build with Arguments",
+						"command": "summit_build_with_args"
+					},
+					{
+						"caption": "Settings – Default",
+						"command": "open_file",
+						"args":
+						{
+							"file": "${packages}/SummitEditor/SummitEditor.sublime-settings"
+						}
+					},
+					{
+						"caption": "Settings – User",
+						"command": "open_file",
+						"args":
+						{
+							"file": "${packages}/User/SummitEditor.sublime-settings"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"caption": "Preferences",
+		"id": "preferences",
+		"mnemonic": "n",
+		"children":
+		[
+			{
+				"caption": "Package Settings",
+				"id": "package-settings",
+				"mnemonic": "P",
+				"children":
+				[
+					{
+						"caption": "SummitEditor",
+						"children":
+						[
+							{
+								"caption": "Settings – Default",
+								"command": "open_file",
+								"args":
+								{
+									"file": "${packages}/SummitEditor/SummitEditor.sublime-settings"
+								}
+							},
+							{
+								"caption": "Settings – User",
+								"command": "open_file",
+								"args":
+								{
+									"file": "${packages}/User/SummitEditor.sublime-settings"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
 ]
