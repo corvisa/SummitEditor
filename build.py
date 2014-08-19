@@ -82,7 +82,7 @@ class SummitBuildWithArgs(SummitBuild):
             sublime.error_message('Unable to find required project setting "build_path"')
         self.platform = platform.system().lower()
 
-        self.window.show_input_panel("Simulator Arguments (--Arg Value):", "--DNIS ", self.simulate_with_args, None, None)
+        self.window.show_input_panel("Simulator Arguments (--Arg Value):", "--test ", self.simulate_with_args, None, None)
 
     def simulate_with_args(self, sim_args):
         self.build(sim_args.split())
