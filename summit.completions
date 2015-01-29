@@ -1,673 +1,2116 @@
 {
-    "scope": "source.lua.summit",
-    "completions": [
-        {
-            "trigger":  "channel.say(text, options)",
-            "contents": "channel.say(${0:text})",
-            "module": null
-        },{
-            "trigger":  "channel.play(filename)",
-            "contents": "channel.play(${0:filename})",
-            "module": null
-        },{
-            "trigger":  "channel.dial(destination, options)",
-            "contents": "channel.dial(${0:destination})",
-            "module": null
-        },{
-            "trigger":  "channel.gather(options)\tstr",
-            "contents": "channel.gather()",
-            "module": null
-        },{
-            "trigger":  "channel.hangup()",
-            "contents": "channel.hangup()",
-            "module": null
-        },{
-            "trigger":  "channel.answer()",
-            "contents": "channel.answer()",
-            "module": null
-        },{
-            "trigger":  "channel.record(options)",
-            "contents": "channel.record()",
-            "module": null
-        },{
-            "trigger":  "channel.ring()",
-            "contents": "channel.ring()",
-            "module": null
-        },{
-            "trigger":  "channel.sleep(seconds, options)",
-            "contents": "channel.sleep(${0:seconds})",
-            "module": null
-        },{
-            "trigger":  "channel.data.domain",
-            "contents": "channel.data.domain",
-            "module": null
-        },{
-            "trigger":  "channel.data.dnis",
-            "contents": "channel.data.dnis",
-            "module": null
-        },{
-            "trigger":  "channel.data.ani",
-            "contents": "channel.data.ani",
-            "module": null
-        },{
-            "trigger":  "channel.data.direction",
-            "contents": "channel.data.direction",
-            "module": null
-        },{
-            "trigger":  "channel.data.localnumber",
-            "contents": "channel.data.localnumber",
-            "module": null
-        },{
-            "trigger":  "channel.data.remotenumber",
-            "contents": "channel.data.remotenumber",
-            "module": null
-        },{
-            "trigger":  "channel.data.destination",
-            "contents": "channel.data.destination",
-            "module": null
-        },{
-            "trigger":  "channel.data.id",
-            "contents": "channel.data.id",
-            "module": null
-        },{
-            "trigger":  "email.send(to_addr, from_addr, subject, body, {file_name=file})",
-            "contents": "email.send(${0:to_addr}, ${1:from_addr}, ${2:subject}, ${3:body})",
-            "module": ["summit.email", "summit.email.send"]
-        },{
-            "trigger":  "http.get(url, {data={}, headers={} })",
-            "contents": "http.get(${0:url})",
-            "module": ["summit.http", "summit.http.get"]
-        },{
-            "trigger":  "http.post(url, {data={}, headers={}, file_payload={file_name='file_body'} })",
-            "contents": "http.post(${0:url})",
-            "module": ["summit.http", "summit.http.post"]
-        },{
-            "trigger":  "soap.soapCall(url, {method='POST', 'action'='Authenticateuser', headers={}, 'payload'={} })",
-            "contents": "soap.soapCall(${0:url})",
-            "module": ["summit.soap", "summit.soap.soapCall"]
-        },{
-            "trigger":  "time.now(timezone)\tdate/time",
-            "contents": "time.now(${0:timezone})",
-            "module": ["summit.time", "summit.time.now"]
-        },{
-            "trigger":  "time.is_workday(t, start_day, end_day)\tboolean",
-            "contents": "time.is_workday(${0:t})",
-            "module": ["summit.time", "summit.time.is_workday"]
-        },{
-            "trigger":  "time.is_business_hours(t, start_time, end_time)\tboolean",
-            "contents": "time.is_business_hours(${0:t})",
-            "module": ["summit.time", "summit.time.is_business_hours"]
-        },{
-            "trigger":  "time.format(t, format)\tstr",
-            "contents": "time.format(${0:t}, ${1:format})",
-            "module": ["summit.time", "summit.time.format"]
-        },{
-            "trigger":  "time.weekday_name(t)\tstr",
-            "contents": "time.weekday_name(${0:t})",
-            "module": ["summit.time", "summit.time.weekday_name"]
-        },{
-            "trigger":  "time.create(time_string, timezone, format)\tdate/time",
-            "contents": "time.create(${0:time_string}, ${1:timezone}, ${2:format})",
-            "module": ["summit.time", "summit.time.create"]
-        },{
-            "trigger": "time.sleep(seconds)",
-            "contents": "time.sleep(${0:seconds})",
-            "module": ["summit.time", "summit.time.sleep"]
-        },{
-            "trigger": "time.to_unix_ts(time)",
-            "contents": "time.to_unix_ts(${0:time})",
-            "module": ["summit.time", "summit.time.to_unix_ts"]
-        },{
-            "trigger":  "time.MONDAY\tint",
-            "contents": "time.MONDAY",
-            "module": ["summit.time", "summit.time.MONDAY"]
-        },{
-            "trigger":  "time.TUESDAY\tint",
-            "contents": "time.TUESDAY",
-            "module": ["summit.time", "summit.time.TUESDAY"]
-        },{
-            "trigger":  "time.WEDNESDAY\tint",
-            "contents": "time.WEDNESDAY",
-            "module": ["summit.time", "summit.time.WEDNESDAY"]
-        },{
-            "trigger":  "time.THURSDAY\tint",
-            "contents": "time.THURSDAY",
-            "module": ["summit.time", "summit.time.THURSDAY"]
-        },{
-            "trigger":  "time.FRIDAY\tint",
-            "contents": "time.FRIDAY",
-            "module": ["summit.time", "summit.time.FRIDAY"]
-        },{
-            "trigger":  "time.SATURDAY\tint",
-            "contents": "time.SATURDAY",
-            "module": ["summit.time", "summit.time.SATURDAY"]
-        },{
-            "trigger":  "time.SUNDAY\tint",
-            "contents": "time.SUNDAY",
-            "module": ["summit.time", "summit.time.SUNDAY"]
-        },{
-            "trigger":  "time.TIME_FORMAT\tstr",
-            "contents": "time.TIME_FORMAT",
-            "module": ["summit.time", "summit.time.TIME_FORMAT"]
-        },{
-            "trigger":  "time.DATE_FORMAT\tstr",
-            "contents": "time.DATE_FORMAT",
-            "module": ["summit.time", "summit.time.DATE_FORMAT"]
-        },{
-            "trigger":  "time.DEFAULT_INPUT_FORMAT\tstr",
-            "contents": "time.DEFAULT_INPUT_FORMAT",
-            "module": ["summit.time", "summit.time.DEFAULT_INPUT_FORMAT"]
-        },{
-            "trigger":  "prefs.<preferenceName>",
-            "contents": "prefs."
-        },{
-            "trigger": "summit.fsm",
-            "contents": "function start()\n    channel.say('$0')\nend\nchannel.answer()\ncurrent = start\nwhile current do\n    current = current()\nend\n\nchannel.hangup()",
-            "module": null
-        },{
-            "trigger": "math.generate_uuid()\tuserdata",
-            "contents": "math.generate_uuid()",
-            "module": ["summit.math", "summit.math.generate_uuid"]
-        },{
-            "trigger": "appdata:update(key, updates)",
-            "contents": "appdata:update(${0:key}, ${1:updates})",
-            "module": "summit.appdata",
-            "object": true
-        },{
-            "trigger": "application.application_type",
-            "contents": "application.application_type",
-            "module": ["summit.application", "summit.application.application_typec"]
-        },{
-            "trigger": "areacode.areacode_to_state(areacode)",
-            "contents": "areacode.areacode_to_state(${0:areacode})",
-            "module": ["summit.areacode", "summit.areacode.areacode_to_state"]
-        },{
-            "trigger": "db.BaseRow:new(model, key, data_table)",
-            "contents": "db.BaseRow:new(${0:model}, ${1:key}, ${2:data_table})",
-            "module": ["summit.db", "summit.db.BaseRow"]
-        },{
-            "trigger": "BaseRow:save()",
-            "contents": "BaseRow:save()",
-            "module": ["summit.db", "summit.db.BaseRow"],
-            "object": true
-        },{
-            "trigger": "BaseRow:delete()",
-            "contents": "BaseRow:delete()",
-            "module": ["summit.db", "summit.db.BaseRow"],
-            "object": true
-        },{
-            "trigger": "BaseRow.key",
-            "contents": "BaseRow.key",
-            "module": ["summit.db", "summit.db.BaseRow"],
-            "object": true
-        },{
-            "trigger": "BaseRow.data",
-            "contents": "BaseRow.data",
-            "module": ["summit.db", "summit.db.BaseRow"],
-            "object": true
-        },{
-            "trigger": "db.BlobRow:new(model, key, data_table)",
-            "contents": "db.BlobRow:new(${0:model}, ${1:key}, ${2:data_table})",
-            "module": ["summit.db", "summit.db.BlobRow"]
-        },{
-            "trigger": "BlobRow:save()",
-            "contents": "BlobRow:save()",
-            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "BlobRow:delete()",
-            "contents": "BlobRow:delete()",
-            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "BlobRow.key",
-            "contents": "BlobRow.key",
-            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "BlobRow.data",
-            "contents": "BlobRow.data",
-            "module": ["summit.db", "summit.db.BlobRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "db.DatabaseModel:new(model_name, type)",
-            "contents": "db.DatabaseModel:new(${0:model_name}, ${1:type})",
-            "module": ["summit.db", "summit.db.DatabaseModel"]
-        },{
-            "trigger": "db.DatabaseModel:get(model_name, type)",
-            "contents": "db.DatabaseModel:get(${0:model_name}, ${1:type})",
-            "module": ["summit.db", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "DatabaseModel:blank(key)",
-            "contents": "DatabaseModel:blank(${0:key})",
-            "module": ["summit.db", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "DatabaseModel:insert(key, value)",
-            "contents": "DatabaseModel:insert(${0:key}, ${1:value})",
-            "module": ["summit.db", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "db.SetRow:new(model, key, data_table)",
-            "contents": "db.SetRow:new(${0:model}, ${1:key}, ${2:data_table})",
-            "module": ["summit.db", "summit.db.SetRow"]
-        },{
-            "trigger": "SetRow:insert(value)",
-            "contents": "SetRow:insert(${0:value})",
-            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "SetRow:remove(value)",
-            "contents": "SetRow:remove(${0:value})",
-            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "SetRow:save()",
-            "contents": "SetRow:save()",
-            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "SetRow:delete()",
-            "contents": "SetRow:delete()",
-            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "SetRow.key",
-            "contents": "SetRow.key",
-            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "SetRow.data",
-            "contents": "SetRow.data",
-            "module": ["summit.db", "summit.db.SetRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "db.MapRow:new(model, key, data_table)",
-            "contents": "db.MapRow:new(${0:model}, ${1:key}, ${2:data_table})",
-            "module": ["summit.db", "summit.db.MapRow"]
-        },{
-            "trigger": "MapRow:update(update_data)",
-            "contents": "MapRow:update(${0:update_data})",
-            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "MapRow:remove(remove_data)",
-            "contents": "MapRow:remove(${0:remove_data})",
-            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "MapRow:save()",
-            "contents": "MapRow:save()",
-            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "MapRow:delete()",
-            "contents": "MapRow:delete()",
-            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "MapRow.key",
-            "contents": "MapRow.key",
-            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "MapRow.data",
-            "contents": "MapRow.data",
-            "module": ["summit.db", "summit.db.MapRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "db.ListRow:new(model, key, data_table)",
-            "contents": "db.ListRow:new(${0:model}, ${1:key}, ${2:data_table})",
-            "module": ["summit.db", "summit.db.ListRow"]
-        },{
-            "trigger": "ListRow:append(value)",
-            "contents": "ListRow:append(${0:value})",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ListRow:prepend(value)",
-            "contents": "ListRow:prepend(${0:value})",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ListRow:remove(value)",
-            "contents": "ListRow:remove(${0:value})",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ListRow:update(index, value)",
-            "contents": "ListRow:update(${0:index}, ${1:value})",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ListRow:save()",
-            "contents": "ListRow:save()",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ListRow:delete()",
-            "contents": "ListRow:delete()",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ListRow.key",
-            "contents": "ListRow.key",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ListRow.data",
-            "contents": "ListRow.data",
-            "module": ["summit.db", "summit.db.ListRow", "summit.db.DatabaseModel"],
-            "object": true
-        },{
-            "trigger": "ivr.run(start, answer, hangup)",
-            "contents": "ivr.run(${0:start})",
-            "module": "summit.ivr",
-            "object": true
-        },{
-            "trigger": "manifest.get(name, raw)",
-            "contents": "manifest.get(${0:name}, ${1:raw})",
-            "module": "summit.manifest"
-        },{
-            "trigger": "menu.add(entry, prompt, func)",
-            "contents": "menu.add(${0:entry}, ${1:prompt}, ${2:func})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.invalid(sound)",
-            "contents": "menu.invalid(${0:sound})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.timeout(seconds)",
-            "contents": "menu.timeout(${0:seconds})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.digitTimeout(seconds)",
-            "contents": "menu.digitTimeout(${0:seconds})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.attempts(attempts)",
-            "contents": "menu.attempts(${0:attempts})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.default(func)",
-            "contents": "menu.default(${0:func})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.intro(prompt)",
-            "contents": "menu.intro(${0:prompt})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.outro(prompt)",
-            "contents": "menu.outro(${0:prompt})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.run(opts)",
-            "contents": "menu.run(${0:outro})",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "menu.selection",
-            "contents": "menu.selection",
-            "module": "summit.menu",
-            "object": true
-        },{
-            "trigger": "sms.send(to, text, sender, callback_url)",
-            "contents": "sms.send(${0:to}, ${1:text}, ${2:sender})",
-            "module": ["summit.sms", "summit.sms.send"]
-        },{
-            "trigger": "dict.initialize(t)",
-            "contents": "dict.initialize(${0:t})",
-            "module": "corvisa.dict"
-        },{
-            "trigger": "dict.clear()",
-            "contents": "dict.clear()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.copy()",
-            "contents": "dict.copy()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.fromkeys(seq, val)",
-            "contents": "dict.fromkeys(${0:seq}, ${1:val})",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.get(key, val)",
-            "contents": "dict.get(${0:key}, ${1:val})",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.has_key(key)",
-            "contents": "dict.has_key(${0:key})",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.items()",
-            "contents": "dict.items()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.iteritems()",
-            "contents": "dict.iteritems()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.iterkeys()",
-            "contents": "dict.iterkeys()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.itervalues()",
-            "contents": "dict.itervalues()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.keys()",
-            "contents": "dict.keys()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.pop(key, val)",
-            "contents": "dict.pop(${0:key}, ${1:val})",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.popitem()",
-            "contents": "dict.popitem()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.setdefault(key, val)",
-            "contents": "dict.setdefault(${0:key}, ${1:val})",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.update(t)",
-            "contents": "dict.update(${0:t})",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "dict.values()",
-            "contents": "dict.values()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "list.initialize(t)",
-            "contents": "list.initialize(${0:t})",
-            "module": "corvisa.list"
-        },{
-            "trigger": "list.append(x)",
-            "contents": "list.append(${0:x})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.extend(t)",
-            "contents": "list.extend(${0:t})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.insert(i, x)",
-            "contents": "list.insert(${0:i}, ${1:x})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.remove(x)",
-            "contents": "list.remove(${0:x})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.pop(i)",
-            "contents": "list.pop(${0:i})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.index(x)",
-            "contents": "list.index(${0:x})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.contains(x)",
-            "contents": "list.contains(${0:x})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.count(x)",
-            "contents": "list.count(${0:x})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.sort(cmp)",
-            "contents": "list.sort(${0:cmp})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "list.reverse()",
-            "contents": "list.reverse()",
-            "module": "corvisa.dict",
-            "object": true
-        },{
-            "trigger": "list.get(i)",
-            "contents": "list.get(${0:i})",
-            "module": "corvisa.list",
-            "object": true
-        },{
-            "trigger": "dnc.initialize(loginId, accountId, projectId)",
-            "contents": "dnc.initialize(${0:loginId}, ${1:accountId}, ${2:projectId})",
-            "module": "integration.dnc"
-        },{
-            "trigger": "dnc:scrub(phoneList)",
-            "contents": "dnc:scrub(${0:phoneList})",
-            "module": "integration.dnc",
-            "object": true
-        },{
-            "trigger": "dnc:block(Table)",
-            "contents": "dnc:block(${0:Table})",
-            "module": "integration.dnc",
-            "object": true
-        },{
-            "trigger": "dnc:unblock(Table)",
-            "contents": "dnc:unblock(${0:Table})",
-            "module": "integration.dnc",
-            "object": true
-        },{
-            "trigger": "dnc:status(Table)",
-            "contents": "dnc:status(${0:Table})",
-            "module": "integration.dnc",
-            "object": true
-        },{
-            "trigger": "dnc.__tablify(data)",
-            "contents": "dnc.__tablify(${0:data})",
-            "module": ["integration.dnc", "integration.dnc.__tablify"]
-        },{
-            "trigger": "dnc:__csvify(data)",
-            "contents": "dnc:__csvify(${0:data})",
-            "module": "integration.dnc",
-            "object": true
-        },{
-            "trigger": "dnc:__parseScrubResponse(s)",
-            "contents": "dnc:__parseScrubResponse(${0:s})",
-            "module": "integration.dnc",
-            "object": true
-        },{
-            "trigger": "dnc:__parseStatusResponse(s)",
-            "contents": "dnc:__parseStatusResponse(${0:s})",
-            "module": "integration.dnc",
-            "object": true
-        },{
-            "trigger": "salesforce.login(username, password, token, options)",
-            "contents": "salesforce.login(${0:username}, ${1:password}, ${2:token})",
-            "module": ["integration.salesforce", "integration.salesforce.login"]
-        },{
-            "trigger": "salesforce.query(querystring)",
-            "contents": "salesforce.query(${0:querystring})",
-            "module": ["integration.salesforce", "integration.salesforce.query"]
-        },{
-            "trigger": "salesforce.create(options)",
-            "contents": "salesforce.create(${0:options})",
-            "module": ["integration.salesforce", "integration.salesforce.create"]
-        },{
-            "trigger": "salesforce.update(options)",
-            "contents": "salesforce.update(${0:options})",
-            "module": ["integration.salesforce", "integration.salesforce.update"]
-        },{
-            "trigger": "salesforce.delete(ids)",
-            "contents": "salesforce.delete(${0:ids})",
-            "module": ["integration.salesforce", "integration.salesforce.delete"]
-        },{
-            "trigger": "zoho:initialize(options)",
-            "contents": "zoho:initialize(${0:options})",
-            "module": "integration.zoho"
-        },{
-            "trigger": "zoho:get(viewName)",
-            "contents": "zoho:get(${0:viewName})",
-            "module": "integration.zoho",
-            "object": true
-        },{
-            "trigger": "zoho:update(formName, criteria, fields)",
-            "contents": "zoho:update(${0:formName}, ${1:criteria}, ${2:fields})",
-            "module": "integration.zoho",
-            "object": true
-        },{
-            "trigger": "zoho:create(formName, fields)",
-            "contents": "zoho:create(${0:formName}, ${1:fields})",
-            "module": "integration.zoho",
-            "object": true
-        },{
-            "trigger": "zoho:delete(formName, criteria)",
-            "contents": "zoho:delete(${0:formName}, ${1:criteria})",
-            "module": "integration.zoho",
-            "object": true
-        },{
-            "trigger": "zoho:list_fields(formName)",
-            "contents": "zoho:list_fields(${0:formName})",
-            "module": "integration.zoho",
-            "object": true
-        },{
-            "trigger": "zoho:list_applications(limit)",
-            "contents": "zoho:list_applications()",
-            "module": "integration.zoho",
-            "object": true
-        },{
-            "trigger": "zoho:list_forms(appName)",
-            "contents": "zoho:list_forms()",
-            "module": "integration.zoho",
-            "object": true
-        },{
-            "trigger": "zoho:list_forms_and_views(appName)",
-            "contents": "zoho:list_forms_and_views()",
-            "module": "integration.zoho",
-            "object": true
+  "imports":{
+    "channel":"summit.channel"
+  },
+  "scope":"source.lua.summit",
+  "modules":{
+    "integration.salesforce":{
+      "functions":{
+        ".login":{
+          "name":".login",
+          "returns":[["boolean","string"]],
+          "contents":".login(${1:username}, ${2:password}, ${3:token}, ${4:options})",
+          "trigger":".login(username, password, token, options)\tboolean"
+        },
+        ".query":{
+          "name":".query",
+          "returns":[["table"]],
+          "contents":".query(${1:querystring})",
+          "trigger":".query(querystring)\ttable"
+        },
+        ".update":{
+          "name":".update",
+          "returns":[["string","table"]],
+          "contents":".update(${1:options})",
+          "trigger":".update(options)\tstring"
+        },
+        ".delete":{
+          "name":".delete",
+          "returns":[["table"]],
+          "contents":".delete(${1:ids})",
+          "trigger":".delete(ids)\ttable"
+        },
+        ".create":{
+          "name":".create",
+          "returns":[["string","table"]],
+          "contents":".create(${1:options})",
+          "trigger":".create(options)\tstring"
         }
-    ]
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.menu":{
+      "functions":{
+        ".Menu":{
+          "name":".Menu",
+          "returns":[["summit.menu.Menu"]],
+          "contents":".Menu()",
+          "trigger":".Menu()\tMenu"
+        }
+      },
+      "objects":{
+        "summit.menu.Menu":{
+          "functions":{
+            ".invalid":{
+              "name":".invalid",
+              "contents":".invalid(${1:sound})",
+              "trigger":".invalid(sound)"
+            },
+            ".run":{
+              "name":".run",
+              "returns":[["any"]],
+              "contents":".run(${1:opts})",
+              "trigger":".run(opts)\tany"
+            },
+            ".outro":{
+              "name":".outro",
+              "contents":".outro(${1:prompt})",
+              "trigger":".outro(prompt)"
+            },
+            ".add":{
+              "name":".add",
+              "contents":".add(${1:entry}, ${2:prompt}, ${3:func})",
+              "trigger":".add(entry, prompt, func)"
+            },
+            ".default":{
+              "name":".default",
+              "contents":".default(${1:func})",
+              "trigger":".default(func)"
+            },
+            ".intro":{
+              "name":".intro",
+              "contents":".intro(${1:prompt})",
+              "trigger":".intro(prompt)"
+            },
+            ".digitTimeout":{
+              "name":".digitTimeout",
+              "contents":".digitTimeout(${1:seconds})",
+              "trigger":".digitTimeout(seconds)"
+            },
+            ".timeout":{
+              "name":".timeout",
+              "contents":".timeout(${1:seconds})",
+              "trigger":".timeout(seconds)"
+            },
+            ".attempts":{
+              "name":".attempts",
+              "contents":".attempts(${1:attempts})",
+              "trigger":".attempts(attempts)"
+            }
+          },
+          "fields":{
+            ".selection":{
+              "name":".selection",
+              "returns":[["string"]],
+              "contents":".selection",
+              "trigger":".selection\tstring"
+            },
+            ".SILENCE":{
+              "name":".SILENCE",
+              "returns":[["string"]],
+              "contents":".SILENCE",
+              "trigger":".SILENCE\tstring"
+            }
+          },
+          "name":"summit.menu.Menu"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "summit.state":{
+      "functions":[],
+      "objects":{
+        "summit.state.State":{
+          "functions":{
+            ":add":{
+              "name":":add",
+              "contents":":add(${1:key}, ${2:value})",
+              "trigger":":add(key, value)"
+            },
+            ":remove":{
+              "name":":remove",
+              "contents":":remove(${1:key})",
+              "trigger":":remove(key)"
+            },
+            ":commit":{
+              "name":":commit",
+              "returns":[["string"],["string"]],
+              "contents":":commit()",
+              "trigger":":commit()\tstring, string"
+            },
+            ":update":{
+              "name":":update",
+              "contents":":update(${1:key}, ${2:value})",
+              "trigger":":update(key, value)"
+            },
+            ":clear_pending_updates":{
+              "name":":clear_pending_updates",
+              "contents":":clear_pending_updates()",
+              "trigger":":clear_pending_updates()"
+            }
+          },
+          "fields":{
+            ".properties":{
+              "name":".properties",
+              "returns":[["table"]],
+              "contents":".properties",
+              "trigger":".properties\ttable"
+            }
+          },
+          "name":"summit.state.State"
+        }
+      },
+      "fields":{
+        ".me":{
+          "name":".me",
+          "returns":[["summit.state.State"]],
+          "contents":".me",
+          "trigger":".me\tState"
+        }
+      },
+      "name":""
+    },
+    "moses":{
+      "functions":{
+        ".uniqueId":{
+          "name":".uniqueId",
+          "returns":[["id"]],
+          "contents":".uniqueId()",
+          "trigger":".uniqueId([template[, ...]])\tid"
+        },
+        ".chain":{
+          "name":".chain",
+          "returns":[["object"]],
+          "contents":".chain(${1:value})",
+          "trigger":".chain(value)\tobject"
+        },
+        ".same":{
+          "name":".same",
+          "returns":[["boolean"]],
+          "contents":".same(${1:a}, ${2:b})",
+          "trigger":".same(a, b)\tboolean"
+        },
+        ".clone":{
+          "name":".clone",
+          "returns":[["table"]],
+          "contents":".clone(${1:obj})",
+          "trigger":".clone(obj[, shallow])\ttable"
+        },
+        ".unshift":{
+          "name":".unshift",
+          "returns":[["moses.obj:value"]],
+          "contents":".unshift(${1:array})",
+          "trigger":".unshift(array)\tvalue"
+        },
+        ".tap":{
+          "name":".tap",
+          "returns":[["table"]],
+          "contents":".tap(${1:obj}, ${2:f})",
+          "trigger":".tap(obj, f[, ...])\ttable"
+        },
+        ".contains":{
+          "name":".contains",
+          "returns":[["boolean"]],
+          "contents":".contains(${1:list}, ${2:item})",
+          "trigger":".contains(list, item)\tboolean"
+        },
+        ".union":{
+          "name":".union",
+          "returns":[["table"]],
+          "contents":".union(${1:...})",
+          "trigger":".union(...)\ttable"
+        },
+        ".isFunction":{
+          "name":".isFunction",
+          "returns":[["boolean"]],
+          "contents":".isFunction(${1:obj})",
+          "trigger":".isFunction(obj)\tboolean"
+        },
+        ".isNil":{
+          "name":".isNil",
+          "returns":[["boolean"]],
+          "contents":".isNil(${1:obj})",
+          "trigger":".isNil(obj)\tboolean"
+        },
+        ".isEmpty":{
+          "name":".isEmpty",
+          "returns":[["boolean"]],
+          "contents":".isEmpty(${1:obj})",
+          "trigger":".isEmpty(obj)\tboolean"
+        },
+        ".memoize":{
+          "name":".memoize",
+          "returns":[["function"]],
+          "contents":".memoize(${1:f})",
+          "trigger":".memoize(f[, hash])\tfunction"
+        },
+        ".difference":{
+          "name":".difference",
+          "returns":[["table"]],
+          "contents":".difference(${1:array1}, ${2:array2})",
+          "trigger":".difference(array1, array2)\ttable"
+        },
+        ".rest":{
+          "name":".rest",
+          "returns":[["table"]],
+          "contents":".rest(${1:array})",
+          "trigger":".rest(array[, index])\ttable"
+        },
+        ".min":{
+          "name":".min",
+          "returns":[["moses.obj:value"]],
+          "contents":".min(${1:list})",
+          "trigger":".min(list[, iter[, ...]])\tvalue"
+        },
+        ".mapReduce":{
+          "name":".mapReduce",
+          "returns":[["table"]],
+          "contents":".mapReduce(${1:list}, ${2:f})",
+          "trigger":".mapReduce(list, f[, state])\ttable"
+        },
+        ".containsKeys":{
+          "name":".containsKeys",
+          "returns":[["boolean"]],
+          "contents":".containsKeys(${1:list}, ${2:other})",
+          "trigger":".containsKeys(list, other)\tboolean"
+        },
+        ".removeRange":{
+          "name":".removeRange",
+          "returns":[["table"]],
+          "contents":".removeRange(${1:array})",
+          "trigger":".removeRange(array[, start[, finish]])\ttable"
+        },
+        ".sortedIndex":{
+          "name":".sortedIndex",
+          "returns":[["index"]],
+          "contents":".sortedIndex(${1:array}, ${2:value})",
+          "trigger":".sortedIndex(array, value[, comp[, sort]])\tindex"
+        },
+        ".compact":{
+          "name":".compact",
+          "returns":[["table"]],
+          "contents":".compact(${1:array})",
+          "trigger":".compact(array)\ttable"
+        },
+        ".reverse":{
+          "name":".reverse",
+          "returns":[["table"]],
+          "contents":".reverse(${1:array})",
+          "trigger":".reverse(array)\ttable"
+        },
+        ".selectWhile":{
+          "name":".selectWhile",
+          "returns":[["table"]],
+          "contents":".selectWhile(${1:array}, ${2:f})",
+          "trigger":".selectWhile(array, f[, ...])\ttable"
+        },
+        ".countBy":{
+          "name":".countBy",
+          "returns":[["table"]],
+          "contents":".countBy(${1:list}, ${2:iter})",
+          "trigger":".countBy(list, iter[, ...])\ttable"
+        },
+        ".after":{
+          "name":".after",
+          "returns":[["function"]],
+          "contents":".after(${1:f}, ${2:count})",
+          "trigger":".after(f, count)\tfunction"
+        },
+        ".each":{
+          "name":".each",
+          "contents":".each(${1:list}, ${2:f})",
+          "trigger":".each(list, f[, ...])"
+        },
+        ".max":{
+          "name":".max",
+          "returns":[["moses.obj:value"]],
+          "contents":".max(${1:list})",
+          "trigger":".max(list[, iter[, ...]])\tvalue"
+        },
+        ".extend":{
+          "name":".extend",
+          "returns":[["table"]],
+          "contents":".extend(${1:destObj}, ${2:...})",
+          "trigger":".extend(destObj, ...)\ttable"
+        },
+        ".import":{
+          "name":".import",
+          "returns":[["table"]],
+          "contents":".import()",
+          "trigger":".import([context[, noConflict]])\ttable"
+        },
+        ".isString":{
+          "name":".isString",
+          "returns":[["boolean"]],
+          "contents":".isString(${1:obj})",
+          "trigger":".isString(obj)\tboolean"
+        },
+        ".cycle":{
+          "name":".cycle",
+          "returns":[["function"]],
+          "contents":".cycle(${1:list}, ${2:n})",
+          "trigger":".cycle(list, n)\tfunction"
+        },
+        ":value":{
+          "name":":value",
+          "returns":[["moses.obj:value"]],
+          "contents":":value()",
+          "trigger":":value()\tvalue"
+        },
+        ".once":{
+          "name":".once",
+          "returns":[["function"]],
+          "contents":".once(${1:f})",
+          "trigger":".once(f)\tfunction"
+        },
+        ".sort":{
+          "name":".sort",
+          "returns":[["table"]],
+          "contents":".sort(${1:list})",
+          "trigger":".sort(list[, comp])\ttable"
+        },
+        ".eachi":{
+          "name":".eachi",
+          "contents":".eachi(${1:list}, ${2:f})",
+          "trigger":".eachi(list, f[, ...])"
+        },
+        ".initial":{
+          "name":".initial",
+          "returns":[["table"]],
+          "contents":".initial(${1:array})",
+          "trigger":".initial(array[, n])\ttable"
+        },
+        ".indexOf":{
+          "name":".indexOf",
+          "returns":[["index"]],
+          "contents":".indexOf(${1:array}, ${2:value})",
+          "trigger":".indexOf(array, value)\tindex"
+        },
+        ".count":{
+          "name":".count",
+          "returns":[["number"]],
+          "contents":".count(${1:list})",
+          "trigger":".count(list[, value])\tnumber"
+        },
+        ".all":{
+          "name":".all",
+          "returns":[["boolean"]],
+          "contents":".all(${1:list}, ${2:f})",
+          "trigger":".all(list, f[, ...])\tboolean"
+        },
+        ".zip":{
+          "name":".zip",
+          "returns":[["table"]],
+          "contents":".zip(${1:...})",
+          "trigger":".zip(...)\ttable"
+        },
+        ".flatten":{
+          "name":".flatten",
+          "returns":[["table"]],
+          "contents":".flatten(${1:array})",
+          "trigger":".flatten(array[, shallow])\ttable"
+        },
+        ".isInteger":{
+          "name":".isInteger",
+          "returns":[["boolean"]],
+          "contents":".isInteger(${1:obj})",
+          "trigger":".isInteger(obj)\tboolean"
+        },
+        ".reduce":{
+          "name":".reduce",
+          "returns":[["state"]],
+          "contents":".reduce(${1:list}, ${2:f})",
+          "trigger":".reduce(list, f[, state])\tstate"
+        },
+        ".functions":{
+          "name":".functions",
+          "returns":[["table"]],
+          "contents":".functions(${1:obj})",
+          "trigger":".functions(obj)\ttable"
+        },
+        ".where":{
+          "name":".where",
+          "returns":[["table"]],
+          "contents":".where(${1:list}, ${2:props})",
+          "trigger":".where(list, props)\ttable"
+        },
+        ".isBoolean":{
+          "name":".isBoolean",
+          "returns":[["boolean"]],
+          "contents":".isBoolean(${1:obj})",
+          "trigger":".isBoolean(obj)\tboolean"
+        },
+        ".keys":{
+          "name":".keys",
+          "returns":[["table"]],
+          "contents":".keys(${1:obj})",
+          "trigger":".keys(obj)\ttable"
+        },
+        ".values":{
+          "name":".values",
+          "returns":[["table"]],
+          "contents":".values(${1:obj})",
+          "trigger":".values(obj)\ttable"
+        },
+        ".uniq":{
+          "name":".uniq",
+          "returns":[["table"]],
+          "contents":".uniq(${1:array})",
+          "trigger":".uniq(array[, isSorted[, iter[, ...]]])\ttable"
+        },
+        ".reduceRight":{
+          "name":".reduceRight",
+          "returns":[["state"]],
+          "contents":".reduceRight()",
+          "trigger":".reduceRight()\tstate"
+        },
+        ".slice":{
+          "name":".slice",
+          "returns":[["table"]],
+          "contents":".slice(${1:array})",
+          "trigger":".slice(array[, start[, finish]])\ttable"
+        },
+        ".reject":{
+          "name":".reject",
+          "returns":[["table"]],
+          "contents":".reject(${1:list}, ${2:f})",
+          "trigger":".reject(list, f[, ...])\ttable"
+        },
+        ".toArray":{
+          "name":".toArray",
+          "returns":[["table"]],
+          "contents":".toArray()",
+          "trigger":".toArray([...])\ttable"
+        },
+        ".times":{
+          "name":".times",
+          "returns":[["table"]],
+          "contents":".times(${1:n}, ${2:iter}, ${3:...})",
+          "trigger":".times(n, iter, ...)\ttable"
+        },
+        ".template":{
+          "name":".template",
+          "returns":[["table"]],
+          "contents":".template(${1:obj}, ${2:template})",
+          "trigger":".template(obj, template)\ttable"
+        },
+        ".paired":{
+          "name":".paired",
+          "returns":[["table"]],
+          "contents":".paired(${1:obj})",
+          "trigger":".paired(obj)\ttable"
+        },
+        ".mapReduceRight":{
+          "name":".mapReduceRight",
+          "returns":[["table"]],
+          "contents":".mapReduceRight(${1:list}, ${2:f})",
+          "trigger":".mapReduceRight(list, f[, state])\ttable"
+        },
+        ".size":{
+          "name":".size",
+          "returns":[["number"]],
+          "contents":".size()",
+          "trigger":".size([...])\tnumber"
+        },
+        ".isNumber":{
+          "name":".isNumber",
+          "returns":[["boolean"]],
+          "contents":".isNumber(${1:obj})",
+          "trigger":".isNumber(obj)\tboolean"
+        },
+        ".pick":{
+          "name":".pick",
+          "returns":[["table"]],
+          "contents":".pick(${1:obj}, ${2:...})",
+          "trigger":".pick(obj, ...)\ttable"
+        },
+        ".isCallable":{
+          "name":".isCallable",
+          "returns":[["boolean"]],
+          "contents":".isCallable(${1:obj})",
+          "trigger":".isCallable(obj)\tboolean"
+        },
+        ".sameKeys":{
+          "name":".sameKeys",
+          "returns":[["boolean"]],
+          "contents":".sameKeys(${1:listA}, ${2:listB})",
+          "trigger":".sameKeys(listA, listB)\tboolean"
+        },
+        ".result":{
+          "name":".result",
+          "returns":[["moses.obj:value"]],
+          "contents":".result(${1:obj}, ${2:method})",
+          "trigger":".result(obj, method[, ...])\tvalue"
+        },
+        ".include":{
+          "name":".include",
+          "returns":[["boolean"]],
+          "contents":".include(${1:list}, ${2:item})",
+          "trigger":".include(list, item)\tboolean"
+        },
+        ".invert":{
+          "name":".invert",
+          "returns":[["table"]],
+          "contents":".invert(${1:array})",
+          "trigger":".invert(array)\ttable"
+        },
+        ".bindn":{
+          "name":".bindn",
+          "returns":[["function"]],
+          "contents":".bindn(${1:f}, ${2:...})",
+          "trigger":".bindn(f, ...)\tfunction"
+        },
+        ".wrap":{
+          "name":".wrap",
+          "returns":[["function"]],
+          "contents":".wrap(${1:f}, ${2:wrapper})",
+          "trigger":".wrap(f, wrapper)\tfunction"
+        },
+        ".intersection":{
+          "name":".intersection",
+          "returns":[["table"]],
+          "contents":".intersection(${1:array}, ${2:...})",
+          "trigger":".intersection(array, ...)\ttable"
+        },
+        ".has":{
+          "name":".has",
+          "returns":[["boolean"]],
+          "contents":".has(${1:obj}, ${2:key})",
+          "trigger":".has(obj, key)\tboolean"
+        },
+        ".range":{
+          "name":".range",
+          "returns":[["table"]],
+          "contents":".range(${1:...})",
+          "trigger":".range(...)\ttable"
+        },
+        ".last":{
+          "name":".last",
+          "returns":[["table"]],
+          "contents":".last(${1:array})",
+          "trigger":".last(array[, n])\ttable"
+        },
+        ".push":{
+          "name":".push",
+          "returns":[["table"]],
+          "contents":".push(${1:array}, ${2:...})",
+          "trigger":".push(array, ...)\ttable"
+        },
+        ".pop":{
+          "name":".pop",
+          "returns":[["moses.obj:value"]],
+          "contents":".pop(${1:array})",
+          "trigger":".pop(array)\tvalue"
+        },
+        ".pluck":{
+          "name":".pluck",
+          "returns":[["table"]],
+          "contents":".pluck(${1:list}, ${2:property})",
+          "trigger":".pluck(list, property)\ttable"
+        },
+        ".map":{
+          "name":".map",
+          "returns":[["table"]],
+          "contents":".map(${1:list}, ${2:f})",
+          "trigger":".map(list, f[, ...])\ttable"
+        },
+        ".countf":{
+          "name":".countf",
+          "returns":[["number"]],
+          "contents":".countf(${1:list}, ${2:f})",
+          "trigger":".countf(list, f[, ...])\tnumber"
+        },
+        ".invoke":{
+          "name":".invoke",
+          "returns":[["table"]],
+          "contents":".invoke(${1:list}, ${2:method})",
+          "trigger":".invoke(list, method[, ...])\ttable"
+        },
+        ".detect":{
+          "name":".detect",
+          "returns":[["key"]],
+          "contents":".detect(${1:list}, ${2:item})",
+          "trigger":".detect(list, item)\tkey"
+        },
+        ".shuffle":{
+          "name":".shuffle",
+          "returns":[["table"]],
+          "contents":".shuffle(${1:list})",
+          "trigger":".shuffle(list[, seed])\ttable"
+        },
+        ".symmetric_difference":{
+          "name":".symmetric_difference",
+          "returns":[["table"]],
+          "contents":".symmetric_difference(${1:array}, ${2:array2})",
+          "trigger":".symmetric_difference(array, array2)\ttable"
+        },
+        ".bind":{
+          "name":".bind",
+          "returns":[["function"]],
+          "contents":".bind(${1:f}, ${2:v})",
+          "trigger":".bind(f, v)\tfunction"
+        },
+        ".identity":{
+          "name":".identity",
+          "returns":[["arg"]],
+          "contents":".identity(${1:value})",
+          "trigger":".identity(value)\targ"
+        },
+        ".isTable":{
+          "name":".isTable",
+          "returns":[["boolean"]],
+          "contents":".isTable(${1:t})",
+          "trigger":".isTable(t)\tboolean"
+        },
+        ".add":{
+          "name":".add",
+          "returns":[["table"]],
+          "contents":".add(${1:array}, ${2:...})",
+          "trigger":".add(array, ...)\ttable"
+        },
+        ".groupBy":{
+          "name":".groupBy",
+          "returns":[["table"]],
+          "contents":".groupBy(${1:list}, ${2:iter})",
+          "trigger":".groupBy(list, iter[, ...])\ttable"
+        },
+        ".isArray":{
+          "name":".isArray",
+          "returns":[["boolean"]],
+          "contents":".isArray(${1:obj})",
+          "trigger":".isArray(obj)\tboolean"
+        },
+        ".isEqual":{
+          "name":".isEqual",
+          "returns":[["boolean"]],
+          "contents":".isEqual(${1:objA}, ${2:objB})",
+          "trigger":".isEqual(objA, objB[, useMt])\tboolean"
+        },
+        ".dropWhile":{
+          "name":".dropWhile",
+          "returns":[["table"]],
+          "contents":".dropWhile(${1:array}, ${2:f})",
+          "trigger":".dropWhile(array, f[, ...])\ttable"
+        },
+        ".compose":{
+          "name":".compose",
+          "returns":[["function"]],
+          "contents":".compose(${1:...})",
+          "trigger":".compose(...)\tfunction"
+        },
+        ".omit":{
+          "name":".omit",
+          "returns":[["table"]],
+          "contents":".omit(${1:obj}, ${2:...})",
+          "trigger":".omit(obj, ...)\ttable"
+        },
+        ".append":{
+          "name":".append",
+          "returns":[["table"]],
+          "contents":".append(${1:array}, ${2:other})",
+          "trigger":".append(array, other)\ttable"
+        },
+        ".findWhere":{
+          "name":".findWhere",
+          "returns":[["item"]],
+          "contents":".findWhere(${1:list}, ${2:props})",
+          "trigger":".findWhere(list, props)\titem"
+        },
+        ".concat":{
+          "name":".concat",
+          "returns":[["string"]],
+          "contents":".concat(${1:array})",
+          "trigger":".concat(array[, sep[, i[, j]]])\tstring"
+        },
+        ".isNaN":{
+          "name":".isNaN",
+          "returns":[["boolean"]],
+          "contents":".isNaN(${1:obj})",
+          "trigger":".isNaN(obj)\tboolean"
+        },
+        ".select":{
+          "name":".select",
+          "returns":[["table"]],
+          "contents":".select(${1:list}, ${2:f})",
+          "trigger":".select(list, f[, ...])\ttable"
+        },
+        ".lastIndexOf":{
+          "name":".lastIndexOf",
+          "returns":[["index"]],
+          "contents":".lastIndexOf(${1:array}, ${2:value})",
+          "trigger":".lastIndexOf(array, value)\tindex"
+        },
+        ".first":{
+          "name":".first",
+          "returns":[["table"]],
+          "contents":".first(${1:array})",
+          "trigger":".first(array[, n])\ttable"
+        },
+        ".chunk":{
+          "name":".chunk",
+          "returns":[["table"]],
+          "contents":".chunk(${1:array}, ${2:f})",
+          "trigger":".chunk(array, f[, ...])\ttable"
+        },
+        ".isFinite":{
+          "name":".isFinite",
+          "returns":[["boolean"]],
+          "contents":".isFinite(${1:obj})",
+          "trigger":".isFinite(obj)\tboolean"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.sound":{
+      "functions":{
+        ".tone":{
+          "name":".tone",
+          "returns":[["summit.sound.ToneSound"]],
+          "contents":".tone(${1:on_duration}, ${2:off_duration}, ${3:frequencies}, ${4:loops})",
+          "trigger":".tone(on_duration, off_duration, frequencies, loops)\tToneSound"
+        },
+        ".silence":{
+          "name":".silence",
+          "returns":[["summit.sound.SilenceSound"]],
+          "contents":".silence(${1:duration}, ${2:comfort_sound})",
+          "trigger":".silence(duration, comfort_sound)\tSilenceSound"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.speech":{
+      "functions":{
+        ".speech":{
+          "name":".speech",
+          "returns":[["summit.speech.SpeechFile"]],
+          "contents":".speech(${1:text}, ${2:options})",
+          "trigger":".speech(text, options)\tSpeechFile"
+        }
+      },
+      "objects":{
+        "summit.speech.SpeechFile":{
+          "functions":[],
+          "fields":{
+            ".text":{
+              "name":".text",
+              "returns":[["string"]],
+              "contents":".text",
+              "trigger":".text\tstring"
+            }
+          },
+          "name":"summit.speech.SpeechFile"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "test.soap":{
+      "functions":{
+        ".soapCall":{
+          "name":".soapCall",
+          "returns":[["table"]],
+          "contents":".soapCall(${1:response}, ${2:error}, ${3:url}, ${4:options})",
+          "trigger":".soapCall(response, error, url, options)\ttable"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.areacode":{
+      "functions":{
+        ".areacode_to_state":{
+          "name":".areacode_to_state",
+          "returns":[["table"]],
+          "contents":".areacode_to_state(${1:areacode})",
+          "trigger":".areacode_to_state(areacode)\ttable"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.cleanup":{
+      "functions":{
+        ".list_callbacks":{
+          "name":".list_callbacks",
+          "returns":[["table"]],
+          "contents":".list_callbacks()",
+          "trigger":".list_callbacks()\ttable"
+        },
+        ".unregister":{
+          "name":".unregister",
+          "returns":[["boolean"]],
+          "contents":".unregister(${1:name})",
+          "trigger":".unregister(name)\tboolean"
+        },
+        ".register":{
+          "name":".register",
+          "returns":[["string"]],
+          "contents":".register(${1:func}, ${2:name}, ${3:private})",
+          "trigger":".register(func, name, private)\tstring"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "test.sms":{
+      "functions":{
+        ".send":{
+          "name":".send",
+          "returns":[["string"],["string"]],
+          "contents":".send(${1:response}, ${2:err}, ${3:to}, ${4:sender}, ${5:text})",
+          "trigger":".send(response, err, to, sender, text[, callback_url])\tstring, string"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.http":{
+      "functions":{
+        ".post":{
+          "name":".post",
+          "returns":[["summit.http.HttpResponse"],["string"]],
+          "contents":".post(${1:url}, ${2:options})",
+          "trigger":".post(url, options)\tHttpResponse, string"
+        },
+        ".put":{
+          "name":".put",
+          "returns":[["summit.http.HttpResponse"],["string"]],
+          "contents":".put(${1:url}, ${2:options})",
+          "trigger":".put(url, options)\tHttpResponse, string"
+        },
+        ".urlencode":{
+          "name":".urlencode",
+          "returns":[["string"]],
+          "contents":".urlencode(${1:data})",
+          "trigger":".urlencode(data)\tstring"
+        },
+        ".get":{
+          "name":".get",
+          "returns":[["summit.http.HttpResponse"],["string"]],
+          "contents":".get(${1:url}, ${2:options})",
+          "trigger":".get(url, options)\tHttpResponse, string"
+        }
+      },
+      "objects":{
+        "summit.http.HttpResponse":{
+          "functions":[],
+          "fields":{
+            ".content":{
+              "name":".content",
+              "returns":[["string"]],
+              "contents":".content",
+              "trigger":".content\tstring"
+            },
+            ".data":{
+              "name":".data",
+              "returns":[["string"]],
+              "contents":".data",
+              "trigger":".data\tstring"
+            },
+            ".headers":{
+              "name":".headers",
+              "returns":[["table"]],
+              "contents":".headers",
+              "trigger":".headers\ttable"
+            },
+            ".reason":{
+              "name":".reason",
+              "returns":[["string"]],
+              "contents":".reason",
+              "trigger":".reason\tstring"
+            },
+            ".url":{
+              "name":".url",
+              "returns":[["string"]],
+              "contents":".url",
+              "trigger":".url\tstring"
+            },
+            ".statusCode":{
+              "name":".statusCode",
+              "returns":[["integer"]],
+              "contents":".statusCode",
+              "trigger":".statusCode\tinteger"
+            }
+          },
+          "name":"summit.http.HttpResponse"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "test.salesforce":{
+      "functions":{
+        ".login":{
+          "name":".login",
+          "returns":[["table"]],
+          "contents":".login(${1:response}, ${2:username}, ${3:password}, ${4:token}, ${5:options})",
+          "trigger":".login(response, username, password, token, options)\ttable"
+        },
+        ".query":{
+          "name":".query",
+          "returns":[["table"]],
+          "contents":".query(${1:response}, ${2:querystring})",
+          "trigger":".query(response, querystring)\ttable"
+        },
+        ".update":{
+          "name":".update",
+          "returns":[["table"]],
+          "contents":".update(${1:response}, ${2:options})",
+          "trigger":".update(response, options)\ttable"
+        },
+        ".delete":{
+          "name":".delete",
+          "returns":[["table"]],
+          "contents":".delete(${1:response}, ${2:ids})",
+          "trigger":".delete(response, ids)\ttable"
+        },
+        ".create":{
+          "name":".create",
+          "returns":[["table"]],
+          "contents":".create(${1:response}, ${2:options})",
+          "trigger":".create(response, options)\ttable"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "test.http":{
+      "functions":{
+        ".put":{
+          "name":".put",
+          "returns":[["table"]],
+          "contents":".put(${1:HttpResponse}, ${2:error}, ${3:url}, ${4:options})",
+          "trigger":".put(HttpResponse, error, url, options)\ttable"
+        },
+        ".post":{
+          "name":".post",
+          "returns":[["table"]],
+          "contents":".post(${1:HttpResponse}, ${2:error}, ${3:url}, ${4:options})",
+          "trigger":".post(HttpResponse, error, url, options)\ttable"
+        },
+        ".get":{
+          "name":".get",
+          "returns":[["table"]],
+          "contents":".get(${1:HttpResponse}, ${2:error}, ${3:url}, ${4:options})",
+          "trigger":".get(HttpResponse, error, url, options)\ttable"
+        }
+      },
+      "objects":{
+        "test.http.HttpResponse":{
+          "functions":[],
+          "fields":{
+            ".content":{
+              "name":".content",
+              "returns":[["string"]],
+              "contents":".content",
+              "trigger":".content\tstring"
+            },
+            ".data":{
+              "name":".data",
+              "returns":[["string"]],
+              "contents":".data",
+              "trigger":".data\tstring"
+            },
+            ".headers":{
+              "name":".headers",
+              "returns":[["table"]],
+              "contents":".headers",
+              "trigger":".headers\ttable"
+            },
+            ".reason":{
+              "name":".reason",
+              "returns":[["string"]],
+              "contents":".reason",
+              "trigger":".reason\tstring"
+            },
+            ".url":{
+              "name":".url",
+              "returns":[["string"]],
+              "contents":".url",
+              "trigger":".url\tstring"
+            },
+            ".statusCode":{
+              "name":".statusCode",
+              "returns":[["integer"]],
+              "contents":".statusCode",
+              "trigger":".statusCode\tinteger"
+            }
+          },
+          "name":"test.http.HttpResponse"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "summit.datastore":{
+      "functions":{
+        ".get_table":{
+          "name":".get_table",
+          "returns":[["summit.datastore.TableClass"],["string"]],
+          "contents":".get_table(${1:name}, ${2:type})",
+          "trigger":".get_table(name, type[, appid])\tTableClass, string"
+        }
+      },
+      "objects":{
+        "summit.datastore.ListRow":{
+          "functions":{
+            ":save":{
+              "name":":save",
+              "returns":[["summit.datastore.ListRow"]],
+              "contents":":save()",
+              "trigger":":save()\tListRow"
+            },
+            ":remove":{
+              "name":":remove",
+              "returns":[["summit.datastore.ListRow"]],
+              "contents":":remove(${1:value})",
+              "trigger":":remove(value)\tListRow"
+            },
+            ":delete":{
+              "name":":delete",
+              "returns":[["summit.datastore.ListRow"]],
+              "contents":":delete()",
+              "trigger":":delete()\tListRow"
+            },
+            ":append":{
+              "name":":append",
+              "returns":[["summit.datastore.ListRow"]],
+              "contents":":append(${1:value})",
+              "trigger":":append(value)\tListRow"
+            },
+            ":prepend":{
+              "name":":prepend",
+              "returns":[["summit.datastore.ListRow"]],
+              "contents":":prepend(${1:value})",
+              "trigger":":prepend(value)\tListRow"
+            }
+          },
+          "fields":{
+            ".data":{
+              "name":".data",
+              "returns":[["table"]],
+              "contents":".data",
+              "trigger":".data\ttable"
+            },
+            ".key":{
+              "name":".key",
+              "returns":[["string"]],
+              "contents":".key",
+              "trigger":".key\tstring"
+            }
+          },
+          "name":"summit.datastore.ListRow"
+        },
+        "summit.datastore.TableClass":{
+          "functions":{
+            "":{
+              "name":"",
+              "returns":[["summit.datastore.MapRow","summit.datastore.ListRow","summit.datastore.SetRow","summit.datastore.BlobRow"],["string"]],
+              "contents":"(${1:key}, ${2:value})",
+              "trigger":"(key, value)\tMapRow, string"
+            },
+            ":get_row_by_key":{
+              "name":":get_row_by_key",
+              "returns":[["summit.datastore.MapRow","summit.datastore.ListRow","summit.datastore.SetRow","summit.datastore.BlobRow"],["string"]],
+              "contents":":get_row_by_key(${1:key})",
+              "trigger":":get_row_by_key(key)\tMapRow, string"
+            },
+            ":create":{
+              "name":":create",
+              "returns":[["boolean"],["string"]],
+              "contents":":create(${1:key}, ${2:value})",
+              "trigger":":create(key, value)\tboolean, string"
+            }
+          },
+          "fields":[],
+          "name":"summit.datastore.TableClass"
+        },
+        "summit.datastore.SetRow":{
+          "functions":{
+            ":insert":{
+              "name":":insert",
+              "returns":[["summit.datastore.SetRow"]],
+              "contents":":insert(${1:value})",
+              "trigger":":insert(value)\tSetRow"
+            },
+            ":remove":{
+              "name":":remove",
+              "returns":[["summit.datastore.SetRow"]],
+              "contents":":remove(${1:value})",
+              "trigger":":remove(value)\tSetRow"
+            },
+            ":delete":{
+              "name":":delete",
+              "returns":[["summit.datastore.SetRow"]],
+              "contents":":delete()",
+              "trigger":":delete()\tSetRow"
+            },
+            ":save":{
+              "name":":save",
+              "returns":[["summit.datastore.SetRow"]],
+              "contents":":save()",
+              "trigger":":save()\tSetRow"
+            }
+          },
+          "fields":{
+            ".data":{
+              "name":".data",
+              "returns":[["table"]],
+              "contents":".data",
+              "trigger":".data\ttable"
+            },
+            ".key":{
+              "name":".key",
+              "returns":[["string"]],
+              "contents":".key",
+              "trigger":".key\tstring"
+            }
+          },
+          "name":"summit.datastore.SetRow"
+        },
+        "summit.datastore.MapRow":{
+          "functions":{
+            ":save":{
+              "name":":save",
+              "returns":[["summit.datastore.MapRow"]],
+              "contents":":save()",
+              "trigger":":save()\tMapRow"
+            },
+            ":remove":{
+              "name":":remove",
+              "returns":[["summit.datastore.MapRow"]],
+              "contents":":remove()",
+              "trigger":":remove()\tMapRow"
+            },
+            ":delete":{
+              "name":":delete",
+              "returns":[["summit.datastore.MapRow"]],
+              "contents":":delete()",
+              "trigger":":delete()\tMapRow"
+            },
+            ":update":{
+              "name":":update",
+              "returns":[["summit.datastore.MapRow"]],
+              "contents":":update(${1:update_data})",
+              "trigger":":update(update_data)\tMapRow"
+            }
+          },
+          "fields":{
+            ".data":{
+              "name":".data",
+              "returns":[["table"]],
+              "contents":".data",
+              "trigger":".data\ttable"
+            },
+            ".key":{
+              "name":".key",
+              "returns":[["string"]],
+              "contents":".key",
+              "trigger":".key\tstring"
+            }
+          },
+          "name":"summit.datastore.MapRow"
+        },
+        "summit.datastore.BlobRow":{
+          "functions":{
+            ":delete":{
+              "name":":delete",
+              "returns":[["summit.datastore.BlobRow"]],
+              "contents":":delete()",
+              "trigger":":delete()\tBlobRow"
+            },
+            ":save":{
+              "name":":save",
+              "returns":[["summit.datastore.BlobRow"]],
+              "contents":":save()",
+              "trigger":":save()\tBlobRow"
+            }
+          },
+          "fields":[],
+          "name":"summit.datastore.BlobRow"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "test.channel":{
+      "functions":{
+        ".app":{
+          "name":".app",
+          "returns":[["table"]],
+          "contents":".app(${1:application_name}, ${2:options})",
+          "trigger":".app(application_name, options)\ttable"
+        },
+        ".record":{
+          "name":".record",
+          "returns":[["table"]],
+          "contents":".record(${1:options})",
+          "trigger":".record(options)\ttable"
+        },
+        ".dial":{
+          "name":".dial",
+          "returns":[["table"]],
+          "contents":".dial(${1:ChannelReference}, ${2:destination}, ${3:options})",
+          "trigger":".dial(ChannelReference, destination, options)\ttable"
+        },
+        ".play":{
+          "name":".play",
+          "returns":[["table"]],
+          "contents":".play(${1:filename})",
+          "trigger":".play(filename)\ttable"
+        },
+        ".sleep":{
+          "name":".sleep",
+          "returns":[["table"]],
+          "contents":".sleep(${1:seconds}, ${2:options})",
+          "trigger":".sleep(seconds, options)\ttable"
+        },
+        ".gather":{
+          "name":".gather",
+          "returns":[["table"]],
+          "contents":".gather(${1:output}, ${2:options})",
+          "trigger":".gather(output, options)\ttable"
+        },
+        ".dtmf":{
+          "name":".dtmf",
+          "returns":[["table"]],
+          "contents":".dtmf(${1:dtmf_digits}, ${2:options})",
+          "trigger":".dtmf(dtmf_digits, options)\ttable"
+        },
+        ".hangup":{
+          "name":".hangup",
+          "returns":[["table"]],
+          "contents":".hangup()",
+          "trigger":".hangup()\ttable"
+        },
+        ".ring":{
+          "name":".ring",
+          "returns":[["table"]],
+          "contents":".ring()",
+          "trigger":".ring()\ttable"
+        },
+        ".say":{
+          "name":".say",
+          "returns":[["table"]],
+          "contents":".say(${1:text}, ${2:options})",
+          "trigger":".say(text, options)\ttable"
+        },
+        ".answer":{
+          "name":".answer",
+          "returns":[["table"]],
+          "contents":".answer()",
+          "trigger":".answer()\ttable"
+        }
+      },
+      "objects":{
+        "test.channel.ChannelReference":{
+          "functions":[],
+          "fields":{
+            ".channel_id":{
+              "name":".channel_id",
+              "returns":[["uuid"]],
+              "contents":".channel_id",
+              "trigger":".channel_id\tuuid"
+            },
+            ".connected_duration":{
+              "name":".connected_duration",
+              "returns":[["float"]],
+              "contents":".connected_duration",
+              "trigger":".connected_duration\tfloat"
+            },
+            ".hangupCause":{
+              "name":".hangupCause",
+              "returns":[["string"]],
+              "contents":".hangupCause",
+              "trigger":".hangupCause\tstring"
+            },
+            ".total_duration":{
+              "name":".total_duration",
+              "returns":[["float"]],
+              "contents":".total_duration",
+              "trigger":".total_duration\tfloat"
+            }
+          },
+          "name":"test.channel.ChannelReference"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "list":{
+      "functions":{
+        ".list":{
+          "name":".list",
+          "returns":[["list.list"]],
+          "contents":".list(${1:t})",
+          "trigger":".list(t)\tlist"
+        }
+      },
+      "objects":{
+        "list.list":{
+          "functions":{
+            ":extend":{
+              "name":":extend",
+              "contents":":extend(${1:t})",
+              "trigger":":extend(t)"
+            },
+            ":sort":{
+              "name":":sort",
+              "contents":":sort()",
+              "trigger":":sort([cmp])"
+            },
+            ":reverse":{
+              "name":":reverse",
+              "contents":":reverse()",
+              "trigger":":reverse()"
+            },
+            ":remove":{
+              "name":":remove",
+              "contents":":remove(${1:x})",
+              "trigger":":remove(x)"
+            },
+            ":insert":{
+              "name":":insert",
+              "contents":":insert(${1:i}, ${2:x})",
+              "trigger":":insert(i, x)"
+            },
+            ":append":{
+              "name":":append",
+              "contents":":append(${1:x})",
+              "trigger":":append(x)"
+            },
+            ":index":{
+              "name":":index",
+              "returns":[["number"]],
+              "contents":":index(${1:x})",
+              "trigger":":index(x)\tnumber"
+            },
+            ":get":{
+              "name":":get",
+              "returns":[["any"]],
+              "contents":":get(${1:i})",
+              "trigger":":get(i)\tany"
+            },
+            ":clear":{
+              "name":":clear",
+              "contents":":clear()",
+              "trigger":":clear()"
+            },
+            ":contains":{
+              "name":":contains",
+              "returns":[["boolean"]],
+              "contents":":contains(${1:x})",
+              "trigger":":contains(x)\tboolean"
+            },
+            ":pop":{
+              "name":":pop",
+              "returns":[["any"]],
+              "contents":":pop()",
+              "trigger":":pop([i])\tany"
+            },
+            ":count":{
+              "name":":count",
+              "returns":[["number"]],
+              "contents":":count(${1:x})",
+              "trigger":":count(x)\tnumber"
+            }
+          },
+          "fields":[],
+          "name":"list.list"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "summit.time":{
+      "functions":{
+        ".weekday_name":{
+          "name":".weekday_name",
+          "returns":[["string"]],
+          "contents":".weekday_name(${1:t})",
+          "trigger":".weekday_name(t)\tstring"
+        },
+        ".is_workday":{
+          "name":".is_workday",
+          "returns":[["boolean"]],
+          "contents":".is_workday(${1:t}, ${2:start_day}, ${3:end_day})",
+          "trigger":".is_workday(t, start_day, end_day)\tboolean"
+        },
+        ".convert_timezone":{
+          "name":".convert_timezone",
+          "returns":[["summit.time.DateTime"],["string"]],
+          "contents":".convert_timezone(${1:t}, ${2:timezone})",
+          "trigger":".convert_timezone(t, timezone)\tDateTime, string"
+        },
+        ".to_unix_ts":{
+          "name":".to_unix_ts",
+          "returns":[["float"]],
+          "contents":".to_unix_ts(${1:time})",
+          "trigger":".to_unix_ts(time)\tfloat"
+        },
+        ".create":{
+          "name":".create",
+          "returns":[["summit.time.DateTime"],["string"]],
+          "contents":".create(${1:time_string}, ${2:timezone}, ${3:format})",
+          "trigger":".create(time_string, timezone, format)\tDateTime, string"
+        },
+        ".sleep":{
+          "name":".sleep",
+          "contents":".sleep(${1:seconds})",
+          "trigger":".sleep(seconds)"
+        },
+        ".is_business_hours":{
+          "name":".is_business_hours",
+          "returns":[["boolean"]],
+          "contents":".is_business_hours(${1:t}, ${2:start_time}, ${3:end_time})",
+          "trigger":".is_business_hours(t, start_time, end_time)\tboolean"
+        },
+        ".format":{
+          "name":".format",
+          "returns":[["string"]],
+          "contents":".format(${1:t}, ${2:format})",
+          "trigger":".format(t, format)\tstring"
+        },
+        ".now":{
+          "name":".now",
+          "returns":[["summit.time.DateTime"]],
+          "contents":".now(${1:timezone})",
+          "trigger":".now(timezone)\tDateTime"
+        }
+      },
+      "objects":{
+        "summit.time.DateTime":{
+          "functions":[],
+          "fields":{
+            ".year":{
+              "name":".year",
+              "returns":[[]],
+              "contents":".year",
+              "trigger":".year\tnumber"
+            },
+            ".microsecond":{
+              "name":".microsecond",
+              "returns":[[]],
+              "contents":".microsecond",
+              "trigger":".microsecond\tnumber"
+            },
+            ".hour":{
+              "name":".hour",
+              "returns":[[]],
+              "contents":".hour",
+              "trigger":".hour\tnumber"
+            },
+            ".day":{
+              "name":".day",
+              "returns":[[]],
+              "contents":".day",
+              "trigger":".day\tnumber"
+            },
+            ".month":{
+              "name":".month",
+              "returns":[[]],
+              "contents":".month",
+              "trigger":".month\tnumber"
+            },
+            ".minute":{
+              "name":".minute",
+              "returns":[[]],
+              "contents":".minute",
+              "trigger":".minute\tnumber"
+            },
+            ".second":{
+              "name":".second",
+              "returns":[[]],
+              "contents":".second",
+              "trigger":".second\tnumber"
+            }
+          },
+          "name":"summit.time.DateTime"
+        }
+      },
+      "fields":{
+        ".DEFAULT_INPUT_FORMAT":{
+          "name":".DEFAULT_INPUT_FORMAT",
+          "returns":[["string"]],
+          "contents":".DEFAULT_INPUT_FORMAT",
+          "trigger":".DEFAULT_INPUT_FORMAT\tstring"
+        },
+        ".WEDNESDAY":{
+          "name":".WEDNESDAY",
+          "returns":[[]],
+          "contents":".WEDNESDAY",
+          "trigger":".WEDNESDAY\tnumber"
+        },
+        ".THURSDAY":{
+          "name":".THURSDAY",
+          "returns":[[]],
+          "contents":".THURSDAY",
+          "trigger":".THURSDAY\tnumber"
+        },
+        ".SUNDAY":{
+          "name":".SUNDAY",
+          "returns":[[]],
+          "contents":".SUNDAY",
+          "trigger":".SUNDAY\tnumber"
+        },
+        ".SATURDAY":{
+          "name":".SATURDAY",
+          "returns":[[]],
+          "contents":".SATURDAY",
+          "trigger":".SATURDAY\tnumber"
+        },
+        ".DATE_FORMAT":{
+          "name":".DATE_FORMAT",
+          "returns":[["string"]],
+          "contents":".DATE_FORMAT",
+          "trigger":".DATE_FORMAT\tstring"
+        },
+        ".FRIDAY":{
+          "name":".FRIDAY",
+          "returns":[[]],
+          "contents":".FRIDAY",
+          "trigger":".FRIDAY\tnumber"
+        },
+        ".MONDAY":{
+          "name":".MONDAY",
+          "returns":[[]],
+          "contents":".MONDAY",
+          "trigger":".MONDAY\tnumber"
+        },
+        ".TIME_FORMAT":{
+          "name":".TIME_FORMAT",
+          "returns":[["string"]],
+          "contents":".TIME_FORMAT",
+          "trigger":".TIME_FORMAT\tstring"
+        },
+        ".TUESDAY":{
+          "name":".TUESDAY",
+          "returns":[[]],
+          "contents":".TUESDAY",
+          "trigger":".TUESDAY\tnumber"
+        }
+      },
+      "name":""
+    },
+    "summit.application":{
+      "functions":{
+        ".get_data":{
+          "name":".get_data",
+          "returns":[["string"]],
+          "contents":".get_data()",
+          "trigger":".get_data()\tstring"
+        },
+        ".get_destination":{
+          "name":".get_destination",
+          "returns":[["string"]],
+          "contents":".get_destination()",
+          "trigger":".get_destination()\tstring"
+        }
+      },
+      "objects":[],
+      "fields":{
+        ".app_id":{
+          "name":".app_id",
+          "returns":[["string"]],
+          "contents":".app_id",
+          "trigger":".app_id\tstring"
+        },
+        ".application_type":{
+          "name":".application_type",
+          "returns":[["string"]],
+          "contents":".application_type",
+          "trigger":".application_type\tstring"
+        }
+      },
+      "name":""
+    },
+    "summit.email":{
+      "functions":{
+        ".send":{
+          "name":".send",
+          "returns":[["boolean"],["string"]],
+          "contents":".send(${1:to_addr}, ${2:from_addr}, ${3:subject}, ${4:body}, ${5:options})",
+          "trigger":".send(to_addr, from_addr, subject, body, options)\tboolean, string"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "dict":{
+      "functions":{
+        ".dict":{
+          "name":".dict",
+          "returns":[["dict.dict"]],
+          "contents":".dict(${1:t})",
+          "trigger":".dict(t)\tdict"
+        }
+      },
+      "objects":{
+        "dict.dict":{
+          "functions":{
+            ":iterkeys":{
+              "name":":iterkeys",
+              "returns":[["function"]],
+              "contents":":iterkeys()",
+              "trigger":":iterkeys()\tfunction"
+            },
+            ":update":{
+              "name":":update",
+              "contents":":update(${1:t})",
+              "trigger":":update(t)"
+            },
+            ".fromkeys":{
+              "name":".fromkeys",
+              "returns":[["dict.dict"]],
+              "contents":".fromkeys(${1:seq}, ${2:val})",
+              "trigger":".fromkeys(seq, val)\tdict"
+            },
+            ":values":{
+              "name":":values",
+              "returns":[["table"]],
+              "contents":":values()",
+              "trigger":":values()\ttable"
+            },
+            ":keys":{
+              "name":":keys",
+              "returns":[["table"]],
+              "contents":":keys()",
+              "trigger":":keys()\ttable"
+            },
+            ":copy":{
+              "name":":copy",
+              "returns":[["dict.dict"]],
+              "contents":":copy()",
+              "trigger":":copy()\tdict"
+            },
+            ":has_key":{
+              "name":":has_key",
+              "returns":[["boolean"]],
+              "contents":":has_key(${1:key})",
+              "trigger":":has_key(key)\tboolean"
+            },
+            ":popitem":{
+              "name":":popitem",
+              "returns":[["any"]],
+              "contents":":popitem()",
+              "trigger":":popitem()\tany"
+            },
+            ":itervalues":{
+              "name":":itervalues",
+              "returns":[["function"]],
+              "contents":":itervalues()",
+              "trigger":":itervalues()\tfunction"
+            },
+            ":setdefault":{
+              "name":":setdefault",
+              "returns":[["any"]],
+              "contents":":setdefault(${1:key}, ${2:val})",
+              "trigger":":setdefault(key, val)\tany"
+            },
+            ":get":{
+              "name":":get",
+              "returns":[["any"]],
+              "contents":":get(${1:key})",
+              "trigger":":get(key[, val])\tany"
+            },
+            ":clear":{
+              "name":":clear",
+              "contents":":clear()",
+              "trigger":":clear()"
+            },
+            ":items":{
+              "name":":items",
+              "returns":[["table"]],
+              "contents":":items()",
+              "trigger":":items()\ttable"
+            },
+            ":pop":{
+              "name":":pop",
+              "returns":[["any"]],
+              "contents":":pop(${1:key})",
+              "trigger":":pop(key[, val])\tany"
+            },
+            ":iteritems":{
+              "name":":iteritems",
+              "returns":[["function"]],
+              "contents":":iteritems()",
+              "trigger":":iteritems()\tfunction"
+            }
+          },
+          "fields":[],
+          "name":"dict.dict"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "test.application":{
+      "functions":{
+        "":{
+          "name":"",
+          "returns":[["table"],["table"]],
+          "contents":"()",
+          "trigger":"()\ttable, table"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.soap":{
+      "functions":{
+        ".soapCall":{
+          "name":".soapCall",
+          "returns":[["table"]],
+          "contents":".soapCall(${1:url}, ${2:options})",
+          "trigger":".soapCall(url, options)\ttable"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.math":{
+      "functions":{
+        ".generate_uuid":{
+          "name":".generate_uuid",
+          "returns":[["userdata"]],
+          "contents":".generate_uuid()",
+          "trigger":".generate_uuid()\tuserdata"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.asset":{
+      "functions":{
+        ".get":{
+          "name":".get",
+          "returns":[["summit.asset.Asset"]],
+          "contents":".get(${1:filename}, ${2:eager})",
+          "trigger":".get(filename, eager)\tAsset"
+        }
+      },
+      "objects":{
+        "summit.asset.Asset":{
+          "functions":[],
+          "fields":[],
+          "name":"summit.asset.Asset"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "test.email":{
+      "functions":{
+        ".send":{
+          "name":".send",
+          "returns":[["table"]],
+          "contents":".send(${1:to_addr}, ${2:from_addr}, ${3:subject}, ${4:body}, ${5:options})",
+          "trigger":".send(to_addr, from_addr, subject, body, options)\ttable"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "integration.dnc":{
+      "functions":{
+        ".DNC":{
+          "name":".DNC",
+          "returns":[["integration.dnc.DNC"]],
+          "contents":".DNC(${1:loginId}, ${2:accountId}, ${3:projectId})",
+          "trigger":".DNC(loginId, accountId, projectId)\tDNC"
+        }
+      },
+      "objects":{
+        "integration.dnc.DNC":{
+          "functions":{
+            ":status":{
+              "name":":status",
+              "returns":[["string"]],
+              "contents":":status(${1:phoneList})",
+              "trigger":":status(phoneList)\tstring"
+            },
+            ":block":{
+              "name":":block",
+              "returns":[["string"]],
+              "contents":":block(${1:phoneList})",
+              "trigger":":block(phoneList)\tstring"
+            },
+            ":unblock":{
+              "name":":unblock",
+              "returns":[["string"]],
+              "contents":":unblock(${1:phoneList})",
+              "trigger":":unblock(phoneList)\tstring"
+            },
+            ":scrub":{
+              "name":":scrub",
+              "returns":[["string"]],
+              "contents":":scrub(${1:phoneList})",
+              "trigger":":scrub(phoneList)\tstring"
+            }
+          },
+          "fields":[],
+          "name":"integration.dnc.DNC"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "json":{
+      "functions":{
+        ".decode":{
+          "name":".decode",
+          "returns":[["table"]],
+          "contents":".decode(${1:text})",
+          "trigger":".decode(text)\ttable"
+        },
+        ".encode":{
+          "name":".encode",
+          "returns":[["string"]],
+          "contents":".encode(${1:value})",
+          "trigger":".encode(value)\tstring"
+        },
+        ".encode_pretty":{
+          "name":".encode_pretty",
+          "returns":[["string"]],
+          "contents":".encode_pretty(${1:value})",
+          "trigger":".encode_pretty(value)\tstring"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.recording":{
+      "functions":{
+        ".recording":{
+          "name":".recording",
+          "returns":[["summit.recording.RecordingResult"]],
+          "contents":".recording(${1:recording_id})",
+          "trigger":".recording(recording_id)\tRecordingResult"
+        }
+      },
+      "objects":{
+        "summit.recording.RecordingResult":{
+          "functions":[],
+          "fields":{
+            ".base64":{
+              "name":".base64",
+              "returns":[[]],
+              "contents":".base64",
+              "trigger":".base64\tfunction"
+            },
+            ".duration":{
+              "name":".duration",
+              "returns":[["float"]],
+              "contents":".duration",
+              "trigger":".duration\tfloat"
+            },
+            ".read":{
+              "name":".read",
+              "returns":[[]],
+              "contents":".read",
+              "trigger":".read\tfunction"
+            },
+            ".id":{
+              "name":".id",
+              "returns":[["uuid"]],
+              "contents":".id",
+              "trigger":".id\tuuid"
+            }
+          },
+          "name":"summit.recording.RecordingResult"
+        }
+      },
+      "fields":[],
+      "name":""
+    },
+    "summit.sms":{
+      "functions":{
+        ".send":{
+          "name":".send",
+          "returns":[["string"],["string"]],
+          "contents":".send(${1:to}, ${2:sender}, ${3:message}, ${4:callback_url})",
+          "trigger":".send(to, sender, message, callback_url)\tstring, string"
+        }
+      },
+      "objects":[],
+      "fields":[],
+      "name":""
+    },
+    "summit.channel":{
+      "functions":{
+        ".app":{
+          "name":".app",
+          "returns":[["boolean"]],
+          "contents":".app()",
+          "trigger":".app()\tboolean"
+        },
+        ".record":{
+          "name":".record",
+          "returns":[["summit.recording.RecordingResult"]],
+          "contents":".record()",
+          "trigger":".record([options])\tRecordingResult"
+        },
+        ".conference":{
+          "name":".conference",
+          "returns":[["boolean"]],
+          "contents":".conference()",
+          "trigger":".conference()\tboolean"
+        },
+        ".dial":{
+          "name":".dial",
+          "returns":[["summit.channel.ChannelReference"]],
+          "contents":".dial(${1:destination})",
+          "trigger":".dial(destination[, options])\tChannelReference"
+        },
+        ".play":{
+          "name":".play",
+          "contents":".play(${1:filename}, ${2:options})",
+          "trigger":".play(filename, options)"
+        },
+        ".barge":{
+          "name":".barge",
+          "returns":[["boolean"]],
+          "contents":".barge(${1:identity})",
+          "trigger":".barge(identity[, options])\tboolean"
+        },
+        ".sleep":{
+          "name":".sleep",
+          "contents":".sleep(${1:seconds})",
+          "trigger":".sleep(seconds[, options])"
+        },
+        ".gather":{
+          "name":".gather",
+          "returns":[["string"]],
+          "contents":".gather(${1:options})",
+          "trigger":".gather(options)\tstring"
+        },
+        ".dtmf":{
+          "name":".dtmf",
+          "contents":".dtmf(${1:input})",
+          "trigger":".dtmf(input[, options])"
+        },
+        ".hangup":{
+          "name":".hangup",
+          "contents":".hangup(${1:options})",
+          "trigger":".hangup(options)"
+        },
+        ".ring":{
+          "name":".ring",
+          "contents":".ring()",
+          "trigger":".ring()"
+        },
+        ".say":{
+          "name":".say",
+          "contents":".say(${1:text})",
+          "trigger":".say(text[, options])"
+        },
+        ".answer":{
+          "name":".answer",
+          "contents":".answer()",
+          "trigger":".answer()"
+        }
+      },
+      "objects":{
+        "summit.channel.ChannelReference":{
+          "functions":[],
+          "fields":{
+            ".channel_id":{
+              "name":".channel_id",
+              "returns":[["uuid"]],
+              "contents":".channel_id",
+              "trigger":".channel_id\tuuid"
+            },
+            ".connected_duration":{
+              "name":".connected_duration",
+              "returns":[["float"]],
+              "contents":".connected_duration",
+              "trigger":".connected_duration\tfloat"
+            },
+            ".hangupCause":{
+              "name":".hangupCause",
+              "returns":[["string"]],
+              "contents":".hangupCause",
+              "trigger":".hangupCause\tstring"
+            },
+            ".total_duration":{
+              "name":".total_duration",
+              "returns":[["float"]],
+              "contents":".total_duration",
+              "trigger":".total_duration\tfloat"
+            }
+          },
+          "name":"summit.channel.ChannelReference"
+        }
+      },
+      "fields":{
+        ".data.id":{
+          "name":".data.id",
+          "returns":[["string"]],
+          "contents":".data.id",
+          "trigger":".data.id\tstring"
+        },
+        ".data.ani":{
+          "name":".data.ani",
+          "returns":[["string"]],
+          "contents":".data.ani",
+          "trigger":".data.ani\tstring"
+        },
+        ".data.localnumber":{
+          "name":".data.localnumber",
+          "returns":[["string"]],
+          "contents":".data.localnumber",
+          "trigger":".data.localnumber\tstring"
+        },
+        ".data.destination":{
+          "name":".data.destination",
+          "returns":[["string"]],
+          "contents":".data.destination",
+          "trigger":".data.destination\tstring"
+        },
+        ".data.dnis":{
+          "name":".data.dnis",
+          "returns":[["string"]],
+          "contents":".data.dnis",
+          "trigger":".data.dnis\tstring"
+        },
+        ".data.remotenumber":{
+          "name":".data.remotenumber",
+          "returns":[["string"]],
+          "contents":".data.remotenumber",
+          "trigger":".data.remotenumber\tstring"
+        },
+        ".data.direction":{
+          "name":".data.direction",
+          "returns":[["string"]],
+          "contents":".data.direction",
+          "trigger":".data.direction\tstring"
+        },
+        ".data.domain":{
+          "name":".data.domain",
+          "returns":[["string"]],
+          "contents":".data.domain",
+          "trigger":".data.domain\tstring"
+        }
+      },
+      "name":""
+    }
+  }
 }

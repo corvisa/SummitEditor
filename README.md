@@ -1,7 +1,7 @@
 #SummitEditor
 
-SummitEditor is the official [Sublime Text 3](http://www.sublimetext.com/3) plugin for [CorvisaCloud, LLC's]
-(http://corvisacloud.com) Summit platform. It provides you with useful snippets, syntax highlighting, and most importantly, access to the Summit Simulator.
+SummitEditor is the official [Sublime Text 3](http://www.sublimetext.com/3) plugin for [Corvisa LLC's]
+(http://corvisa.com) Summit platform. It provides you with useful snippets, syntax highlighting, and most importantly, access to the Summit Simulator.
 
 ##Installation
 
@@ -25,15 +25,15 @@ The recommended way to install SummitEditor is through Package Control. If you d
 Optionally, you can use git to clone this repository into your Sublime Text `Packages` directory. You can confirm that installation has worked by opening the Command Palette and typing the word `summit`. You should see an available syntax option for `Lua (Summit)`.
 
 ###Optional Packages
-SummitEditor also offers a [SummitLinter](https://github.com/corvisacloud/SummitLinter) plugin for [SublimeLinter 3](http://www.sublimelinter.com/en/latest/) allowing for automatic linting of your code. To install SummitLinter (as well as SublimeLinter if it is not already installed), first make sure you meet the [requirements](https://github.com/corvisacloud/SummitLinter#installation), then select `Tools > SummitEditor > Install SummitLinter Packages`. Note: using this option requires Package Control to be installed.
+SummitEditor also offers a [SummitLinter](https://github.com/corvisa/SummitLinter) plugin for [SublimeLinter 3](http://www.sublimelinter.com/en/latest/) allowing for automatic linting of your code. To install SummitLinter (as well as SublimeLinter if it is not already installed), first make sure you meet the [requirements](https://github.com/corvisa/SummitLinter#installation), then select `Tools > SummitEditor > Install SummitLinter Packages`. Note: using this option requires Package Control to be installed.
 
 ###Application Structure
-When you clone your application, the application directory should be as follows:  
-\<application\>/  
-├── assets  
-├── spec   
-└── src   
-The simulator will run the `main.lua` file inside the application's `src` directory.  
+When you clone your application, the application directory should be as follows:
+\<application\>/
+├── assets
+├── spec
+└── src
+The simulator will run the `main.lua` file inside the application's `src` directory.
 
 ##Running The Simulator
 
@@ -63,7 +63,7 @@ If your application requires additional flags to be set before being run you can
 ##License
 The MIT License (MIT)
 
-Copyright (c) 2014 CorvisaCloud, LLC
+Copyright (c) 2014 Corvisa LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
