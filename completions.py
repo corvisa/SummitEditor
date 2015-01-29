@@ -58,6 +58,8 @@ class SummitCompletions:
                     self.obj_types[obj] = module['objects'][obj]
 
     def default_imports(self):
+        self.load_completions()
+
         return self.completions['imports']
 
     def find_return_types(self, symbol, imports, objects):
@@ -70,6 +72,8 @@ class SummitCompletions:
 
         if symbol is None or imports is None or len(imports) == 0:
             return None
+
+        self.load_completions()
 
         self_parts = symbol.split(':')
         sym_parts = self_parts[0].split('.')
@@ -128,6 +132,8 @@ class SummitCompletions:
         completion_target = self.current_word(view)
         if completion_target.endswith('.') or completion_target.endswith(':'):
             completion_target = completion_target[:-1]
+
+        self.load_completions()
 
         comps = []
         used_names = set()
@@ -216,7 +222,9 @@ class SummitCompletions:
 
 class CompletionsListener(SummitCompletions, sublime_plugin.EventListener):
     def __init__(self):
-        super().__init__()
+        # Don't do super().__init__() or even try to do
+        # SummitCompletions.__init__(self) here because apparently it causes
+        # Sublime to not hook the event methods...?
 
         self.periods_set = {}
         self.default_separators = ''
