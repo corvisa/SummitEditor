@@ -1,0 +1,2 @@
+# SummitEditor v1.1.0
+* Code completion was improved to be context-aware.
