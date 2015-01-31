@@ -5,7 +5,17 @@ import re
 import json
 
 import_regex = r"""^(local\s+)?([\w\d_]+)\s*=\s*require\s*\(?['"]?(.+?)['"]?\)?$"""
-assign_regex = r"""^[ \t]*(?:local\s+)?([\w\d_.,]+)\s*=\s*([\w\d_.:]+)\s*(?:\(.*\)\s*)?$"""
+
+# assign_regex matches multiple types of lua assignments
+# examples:
+#
+# local setrow = chain:insert(value) -- with an ending comment
+# setrow = chain:insert(value) -- with an ending comment
+# local db = datastore.get_table(name, type)
+# db = datastore.get_table(name, type)
+# somevar = tbl.some_field
+# somevar = tbl.some_field -- with a comment
+assign_regex = r"""^[ \t]*(?:local\s+)?([\w\d_.,]+)\s*=\s*([\w\d_.:]+)\s*(?:\(.*\)\s*)?(?:--.*)?$"""
 
 
 def is_summit_file(view):
@@ -33,6 +43,8 @@ class SummitCompletions:
     obj_types = {}
 
     def __init__(self):
+        self.completions = []
+        self.obj_types = {}
         self.load_completions()
 
     def load_completions(self):
@@ -98,20 +110,46 @@ class SummitCompletions:
                     # in the data as an empty function)
                     target_name = ''
 
-                print(str(found_types))
-
+                rhs_types = []
                 for found_type in found_types:
+                    # found_types are the potential types that obj_name
+                    # can be, so iterate over them and try to get the
+                    # function and field data for each of those types
                     type_opts = self.obj_types.get(found_type)
                     if type_opts:
+                        # found the type we were looking for, so see if we find
+                        # a match for the target (such as a function call) and
+                        # then add the return values for that function/field
+                        # to the correct set of returns
                         type_funcs = type_opts['functions']
-                        type_fields = type_opts['fields']
-
                         if target_name in type_funcs:
-                            if 'returns' in type_funcs[target_name]:
-                                return type_funcs[target_name]['returns']
+                            returns = type_funcs[target_name].get('returns')
+                            if returns:
+                                ret_types_diff = len(returns) - len(rhs_types)
+                                for _ in range(0, ret_types_diff):
+                                    # Add any missing return sets to the list
+                                    rhs_types.append(set())
+
+                                for type_idx, ret_types in enumerate(returns):
+                                    ret_idx_types = rhs_types[type_idx]
+                                    for ret_type in ret_types:
+                                        ret_idx_types.add(ret_type)
+
+                        type_fields = type_opts['fields']
                         if target_name in type_fields:
-                            if 'returns' in type_fields[target_name]:
-                                return type_fields[target_name]['returns']
+                            returns = type_fields[target_name].get('returns')
+                            if returns:
+                                ret_types_diff = len(returns) - len(rhs_types)
+                                for _ in range(0, ret_types_diff):
+                                    # Add any missing return sets to the list
+                                    rhs_types.append(set())
+
+                                for type_idx, ret_types in enumerate(returns):
+                                    ret_idx_types = rhs_types[type_idx]
+                                    for ret_type in ret_types:
+                                        ret_idx_types.add(ret_type)
+
+                return rhs_types
 
             return None
 
