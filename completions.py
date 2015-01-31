@@ -98,18 +98,20 @@ class SummitCompletions:
                     # in the data as an empty function)
                     target_name = ''
 
+                print(str(found_types))
+
                 for found_type in found_types:
-                    type_opts = self.obj_types[found_type]
+                    type_opts = self.obj_types.get(found_type)
+                    if type_opts:
+                        type_funcs = type_opts['functions']
+                        type_fields = type_opts['fields']
 
-                    type_funcs = type_opts['functions']
-                    type_fields = type_opts['fields']
-
-                    if target_name in type_funcs:
-                        if 'returns' in type_funcs[target_name]:
-                            return type_funcs[target_name]['returns']
-                    if target_name in type_fields:
-                        if 'returns' in type_fields[target_name]:
-                            return type_fields[target_name]['returns']
+                        if target_name in type_funcs:
+                            if 'returns' in type_funcs[target_name]:
+                                return type_funcs[target_name]['returns']
+                        if target_name in type_fields:
+                            if 'returns' in type_fields[target_name]:
+                                return type_fields[target_name]['returns']
 
             return None
 
@@ -202,7 +204,7 @@ class SummitCompletions:
             # it looks weird and ends up with duplicates like:
             # mymenu
             # mymenu.
-            if not c.endswith('.') and c not in used_names:
+            if re.search(r'[\.:]$', c) is None and c not in used_names:
                 comps.append((c, c))
 
         comps.sort()
