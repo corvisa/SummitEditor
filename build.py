@@ -56,7 +56,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
             "{}{}simulate_{}.sh".format(SUMMIT_PLUGIN_PATH, os.path.sep, self.platform),
             self.build_path,
             self.SUMMIT_SETTINGS.get("summit_simulator_host", "code.corvisacloud.com"),
-            self.SUMMIT_SETTINGS.get("summit_simulator_user", "debug")
+            self.SUMMIT_SETTINGS.get("summit_simulator_user", "test")
         ]
 
         #If there is an app id specified in the project settings, pass it to the simulator
