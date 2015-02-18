@@ -67,6 +67,14 @@ class SummitBuild(sublime_plugin.WindowCommand):
         except KeyError:
             pass
 
+        for key in ['api_key', 'api_secret', 'use_live_datastore']:
+            try:
+                val = self.window.project_data()[key]
+                opts.append('--%s' % key)
+                opts.append(val)
+            except KeyError:
+                pass
+
         for opt in opts:
             cmd.append(opt)
 
