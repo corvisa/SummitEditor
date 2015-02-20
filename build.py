@@ -71,7 +71,7 @@ class SummitBuild(sublime_plugin.WindowCommand):
             try:
                 val = self.window.project_data()[key]
                 opts.append('--%s' % key)
-                opts.append(str(val).lower())
+                opts.append(str(val))
             except KeyError:
                 pass
 
