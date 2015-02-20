@@ -29,10 +29,14 @@ SummitEditor also offers a [SummitLinter](https://github.com/corvisa/SummitLinte
 
 ###Application Structure
 When you clone your application, the application directory should be as follows:
-\<application\>/
-├── assets
-├── spec
-└── src
+```
+<application>
+├── assets/
+├── spec/
+├── src/
+└── REPOCONF
+
+```
 The simulator will run the `main.lua` file inside the application's `src` directory.
 
 ##Running The Simulator
@@ -44,21 +48,43 @@ Now that you have a project created, we need to add some simulator settings to i
 ```json
 "build_path": "/folder/that/contains/your/application/source"
 ```
-build_path should point to the `src` directory's parent directory and *not* the `src` directory itself. You can also optionally add the application id, which can be useful for simulation involving data in datastores:
+build_path should point to the `src` directory's parent directory and *not* the `src` directory itself. There are also a few other optional parameters, which will allow you to connect to your live datastore from the simulator. You need to include all of the following:
 ```json
-"application_id": "12345678-1234-5678-1234-567812345678"
+"application_id": "12345678-1234-5678-1234-567812345678",
+"api_key": "bl53y1g3l5AS",
+"api_secret": "bkas34n23=2",
+"use_live_datastore": "true"
 ```
+You can generate an API Key and Secret in your Summit Account under `Access -> API Keys`. Your Application ID is available in the Applications grid. Hover over a column header and click the arrow that appears. You will see a menu with additional columns, including "Application ID". Alternatively, your Application ID is available as the UUID at the end of your git remote.
+
+Your final Project settings file should look something like this (if your app was in `/home/myuser/code/DemoApp/`:
+```json
+{
+    "folders":
+    [
+        {
+            "follow_symlinks": true,
+            "path": "/home/myuser/code/DemoApp"
+        }
+    ],
+    "build_path": "/home/myuser/code/DemoApp",
+    "application_id": "12345678-1234-5678-1234-567812345678",
+    "api_key": "bl53y1g3l5AS",
+    "api_secret": "bkas34n23=2",
+    "use_live_datastore": "true"
+}
+```
+
 With these settings configured, you can start the simulation in one of two ways. First you must have the syntax settings of your file set to `Lua (Summit)` or you can manually select your build script from `Tools -> Build System`. If you need to do a simple simulation (one that does not require any special flags), you can now simply press `ctrl+b` on Windows or Linux machines and `cmd-b` on Mac computers. This should cause a terminal window to open on your screen allowing you to interact with your simulated application.
 
 If your application requires additional flags to be set before being run you can start your build with `ctrl+shift+b` on Windows and Linux or `cmd+shift+b` on Mac computers. This will open an options panel on the bottom of the screen. This options panel accepts arguments prefixed with dashes and separated by spaces, ex - `--DNIS 5558675309 --ANI 5554441212`. A complete list of options is as follows:
 
-| Option    | Detail            |
-| ---------:| ----------------- |
-| DNIS      | Sets the DNIS or "number dialed", useful for testing number based routing. |
-| ANI       | Sets the ANI or "number app called from", useful for doing things like looking up existing customers by phone number |
-| appid     | Attempt to set the running application's ID. This will give your datastores the proper context but all requests to this flag hit SSH key authentication. If an invalid appid is specified, the simulator will raise an error. This flag is passed automatically via project setting `application_id` |
-| debug     | In the case of an error being raised inside of your application, drop into an interactive shell for further debugging. |
-
+| Option    | Detail            | Example                |
+| ---------:| :---------------- | :--------------------- |
+| DNIS      | Sets the DNIS or "number dialed", useful for testing number based routing. | `--DNIS 15558675309` | 
+| ANI       | Sets the ANI or "number app called from", useful for doing things like looking up existing customers by phone number. | `--ANI 15551234567` | 
+| test      | Runs your unit tests instead of opening the simulator. | `--test` | 
+| verbose   | Should only be used in conjunction with `test`; This will output the full coverage report for your application (line by line), allowing you to see where you are missing test coverage. | `--test --verbose` | 
 
 ##License
 The MIT License (MIT)
