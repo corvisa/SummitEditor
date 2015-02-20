@@ -83,7 +83,7 @@ If your application requires additional flags to be set before being run you can
 | ---------:| :---------------- | :--------------------- |
 | DNIS      | Sets the DNIS or "number dialed", useful for testing number based routing. | `--DNIS 15558675309` | 
 | ANI       | Sets the ANI or "number app called from", useful for doing things like looking up existing customers by phone number. | `--ANI 15551234567` | 
-| test      | Runs your unit tests instead of opening the simulator. | `--test` | 
+| test      | Runs your unit tests, instead of opening the simulator. | `--test` | 
 | verbose   | Should only be used in conjunction with `test`; This will output the full coverage report for your application (line by line), allowing you to see where you are missing test coverage. | `--test --verbose` | 
 
 ##License
