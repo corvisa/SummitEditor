@@ -26,7 +26,6 @@ import os
 import platform
 import sublime
 import sublime_plugin
-
 from subprocess import Popen
 
 SUMMIT_PLUGIN_PATH = os.path.split(os.path.abspath(__file__))[0]
@@ -51,8 +50,13 @@ class SummitBuild(sublime_plugin.WindowCommand):
                 "Unable to determine operating system or platform '{0}' not supported.".format(self.platform))
             return
 
+        if self.platform != 'windows':
+            bash = 'bash'
+        else:
+            bash = os.path.expanduser("~\\AppData\\Local\\Programs\\Git\\git-bash.exe")
+
         cmd = [
-            'bash',
+            bash,
             "{}{}simulate_{}.sh".format(SUMMIT_PLUGIN_PATH, os.path.sep, self.platform),
             self.build_path,
             self.SUMMIT_SETTINGS.get("summit_simulator_host", "code.corvisacloud.com"),
